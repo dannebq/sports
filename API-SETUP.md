@@ -1,245 +1,396 @@
-# API Setup Guide
+# Web Scraping Setup Guide
 
-This guide explains how to enable automatic fetching of live football results at regular intervals.
+This guide explains how to enable automatic web scraping of live football results at regular intervals.
 
 ## Overview
 
-The website can automatically fetch and update match results from football APIs at configurable intervals. By default, this feature is **disabled** and the site uses static data.
+The website can automatically scrape and update match results from football websites at configurable intervals. By default, this feature is **disabled** and the site uses static data.
 
-## Quick Start
+## ⚠️ Important Notes
 
-1. Get a free API key from football-data.org
-2. Update `config.js` with your API key
-3. Enable the feature
-4. Refresh your browser
+**Web Scraping Considerations:**
+- Be respectful - don't scrape too frequently
+- Many websites use anti-bot measures that may block scraping
+- Website HTML structures change frequently, breaking parsers
+- Consider using official APIs when available
+- Check websites' robots.txt and terms of service
+- Browser-based scraping has CORS limitations
+
+## Quick Start Guide
+
+### Option 1: Browser-Based Scraping (Simple but Limited)
+
+**Pros:** No server needed, works from static HTML
+**Cons:** CORS issues, limited by browser security, less reliable
+
+1. Open `config.js`
+2. Set `enabled: true`
+3. Choose a CORS proxy
+4. Reload page
+
+### Option 2: Backend Scraper (Recommended)
+
+**Pros:** More reliable, no CORS issues, better control
+**Cons:** Requires Node.js server
+
+1. Install Node.js
+2. Run `node backend-scraper.js`
+3. Configure frontend to use backend
+4. Access results via API
 
 ## Detailed Setup
 
-### Step 1: Get an API Key
+### Browser-Based Scraping Setup
 
-We recommend using **football-data.org** (free tier available):
+#### Step 1: Configure Scraping
 
-1. Visit https://www.football-data.org/
-2. Sign up for a free account
-3. Go to your account settings
-4. Copy your API token/key
-
-**Free tier limits:**
-- 10 requests per minute
-- Covers major European leagues including Premier League
-- Note: Allsvenskan may not be available on free tier
-
-### Step 2: Configure the API
-
-Open `config.js` and update the following:
+Open `config.js` and update:
 
 ```javascript
 const apiConfig = {
-    // Set to true to enable auto-fetch
+    // Enable scraping
     enabled: true,
 
-    // Your API key from football-data.org
-    apiKey: 'YOUR_API_KEY_HERE',  // Replace with your actual key
+    // Use browser method
+    method: 'browser',
 
-    // Refresh interval (in milliseconds)
-    // Default: 300000 (5 minutes)
-    // Minimum recommended: 60000 (1 minute to avoid rate limits)
-    refreshInterval: 300000,
+    // Choose a CORS proxy
+    corsProxy: 'https://api.allorigins.win/raw?url=',
+    // Alternatives:
+    // 'https://corsproxy.io/?',
+    // 'https://api.codetabs.com/v1/proxy?quest=',
 
-    // ... rest of config
+    // Scrape interval (minimum 5 minutes recommended)
+    refreshInterval: 300000,  // 5 minutes
+
+    // Target websites
+    sources: {
+        allsvenskan: {
+            url: 'https://www.flashscore.com/football/sweden/allsvenskan/results/',
+            name: 'Allsvenskan',
+            parser: 'flashscore'
+        },
+        premierleague: {
+            url: 'https://www.flashscore.com/football/england/premier-league/results/',
+            name: 'Premier League',
+            parser: 'flashscore'
+        }
+    }
 };
 ```
 
-### Step 3: Enable Auto-Fetch
+#### Step 2: Reload Page
 
-Change `enabled: false` to `enabled: true` in `config.js`
+Open `index.html` in your browser. Scraping starts automatically.
 
-### Step 4: Reload the Website
+#### Step 3: Monitor Console
 
-Open or refresh `index.html` in your browser. You should see:
-- A "Refresh" button in the filter section
-- "Last updated: [time]" status indicator
-- Console messages about API fetching (open browser DevTools to see)
+Open browser DevTools (F12) to see scraping status:
+- "Web scraping enabled"
+- "Scraping [league] from [url]"
+- "Scraped X events, Y matches"
 
-## Features
+### Backend Scraper Setup (Recommended)
 
-### Auto-Refresh
-- Automatically fetches new results at the configured interval
-- Updates all pages without requiring manual refresh
-- Shows loading indicator during fetch
+#### Step 1: Install Dependencies
 
-### Manual Refresh
-- Click the "Refresh" button to fetch immediately
-- Useful for getting latest results on demand
-
-### Status Indicator
-- Shows when data was last updated
-- Displays "Using static data" if API is disabled
-
-### Fallback to Static Data
-- If API fetch fails, uses existing static data
-- No disruption to user experience
-
-## Configuration Options
-
-### Refresh Interval
-
-Adjust how often to fetch new data (in milliseconds):
-
-```javascript
-refreshInterval: 180000,  // 3 minutes
-refreshInterval: 300000,  // 5 minutes (default)
-refreshInterval: 600000,  // 10 minutes
+```bash
+# Install Node.js from nodejs.org
+# Then install cheerio for HTML parsing
+npm install cheerio
 ```
 
-**Important:** Respect API rate limits. The free tier allows 10 requests/minute.
+#### Step 2: Update Backend Scraper
 
-### Match Filters
-
-Control which matches to fetch:
+Edit `backend-scraper.js` and add cheerio parsing:
 
 ```javascript
-filters: {
-    status: 'FINISHED',  // FINISHED, SCHEDULED, LIVE, IN_PLAY
-    limit: 30           // Number of recent matches per league
+const cheerio = require('cheerio');
+
+function parseHTML(html, league) {
+    const $ = cheerio.load(html);
+    const events = [];
+    const results = [];
+
+    // Example: Parse matches from HTML
+    $('.match-row').each((i, elem) => {
+        const homeTeam = $(elem).find('.home-team').text().trim();
+        const awayTeam = $(elem).find('.away-team').text().trim();
+        const score = $(elem).find('.score').text().trim();
+
+        // Extract and structure data
+        // ...
+    });
+
+    return { events, results };
 }
 ```
 
-## Supported APIs
+**Note:** You'll need to inspect the actual HTML structure of your target websites and adapt the selectors accordingly.
 
-### football-data.org (Default)
+#### Step 3: Start Backend Server
 
-**Pros:**
-- Free tier available
-- Good documentation
-- Covers Premier League
-- Real-time updates
+```bash
+node backend-scraper.js
+```
 
-**Cons:**
-- Swedish Allsvenskan not available on free tier
-- Rate limits on free tier
+Server runs on http://localhost:3000
 
-**Leagues:**
-- Premier League: ✅ Free tier
-- Allsvenskan: ❌ Not available
+#### Step 4: Configure Frontend
 
-### Custom API
-
-You can use any football API by configuring custom endpoints:
+Update `config.js`:
 
 ```javascript
-provider: 'custom',
+const apiConfig = {
+    enabled: true,
+    method: 'backend',
 
-endpoints: {
-    'custom': {
-        baseUrl: 'https://your-api.com/v1',
-        allsvenskan: '/allsvenskan/matches',
-        premierleague: '/premierleague/matches'
+    // Backend API endpoint
+    backendUrl: 'http://localhost:3000/api/results',
+
+    refreshInterval: 300000,
+};
+```
+
+Update `api-fetch.js` to fetch from backend:
+
+```javascript
+async fetchHTML(url) {
+    if (apiConfig.method === 'backend') {
+        // Fetch from local backend
+        const response = await fetch(apiConfig.backendUrl);
+        const data = await response.json();
+        return data;
+    }
+    // ... existing browser method code
+}
+```
+
+## Customizing Parsers
+
+### Adding a New Website Source
+
+1. Inspect the website's HTML structure
+2. Identify CSS selectors for:
+   - Match containers
+   - Team names
+   - Scores
+   - Dates/times
+
+3. Add to `config.js`:
+
+```javascript
+sources: {
+    myLeague: {
+        url: 'https://example.com/league/results',
+        name: 'My League',
+        parser: 'custom'
     }
 }
 ```
 
-## Browser Console Commands
-
-Control the fetcher manually from browser console (F12):
+4. Create parser in `api-fetch.js`:
 
 ```javascript
-// Fetch results immediately
+parseCustom(html, league) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+
+    const matches = doc.querySelectorAll('.your-match-selector');
+
+    matches.forEach(match => {
+        const homeTeam = match.querySelector('.home-selector').textContent;
+        const awayTeam = match.querySelector('.away-selector').textContent;
+        const score = match.querySelector('.score-selector').textContent;
+
+        // Parse and add to results
+    });
+
+    return { events, results };
+}
+```
+
+## Common Issues & Solutions
+
+### Issue: CORS Errors
+
+**Problem:** "Access to fetch blocked by CORS policy"
+
+**Solutions:**
+1. Use a different CORS proxy
+2. Switch to backend scraper method
+3. Run a local proxy server
+
+### Issue: No Data Scraped
+
+**Problem:** "No matches found. HTML structure may have changed"
+
+**Solutions:**
+1. Inspect target website HTML structure
+2. Update CSS selectors in parser
+3. Check if website blocks automated access
+4. Try a different source website
+
+### Issue: Parser Not Working
+
+**Problem:** Selectors don't match any elements
+
+**Solutions:**
+1. Use browser DevTools to inspect HTML
+2. Update selectors to match current structure
+3. Check if website uses JavaScript to load content (requires different approach)
+4. Consider using backend with Puppeteer for JS-rendered sites
+
+### Issue: Rate Limiting / IP Blocking
+
+**Problem:** Website blocks your requests
+
+**Solutions:**
+1. Increase scrape interval (scrape less frequently)
+2. Add random delays between requests
+3. Rotate user agents
+4. Use proxies (carefully and ethically)
+5. Consider using official APIs instead
+
+## Advanced: Handling Dynamic Content
+
+Many modern websites (including Flashscore) load content via JavaScript. To scrape these:
+
+### Using Puppeteer (Backend Only)
+
+```bash
+npm install puppeteer
+```
+
+```javascript
+const puppeteer = require('puppeteer');
+
+async function scrapeDynamic(url) {
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+
+    await page.goto(url, { waitUntil: 'networkidle2' });
+
+    const data = await page.evaluate(() => {
+        // Extract data from page
+        const matches = [];
+        document.querySelectorAll('.match').forEach(match => {
+            matches.push({
+                home: match.querySelector('.home').textContent,
+                away: match.querySelector('.away').textContent,
+                score: match.querySelector('.score').textContent
+            });
+        });
+        return matches;
+    });
+
+    await browser.close();
+    return data;
+}
+```
+
+## Recommended Sources
+
+### Easier to Scrape (Simple HTML)
+- BBC Sport (simple table structure)
+- ESPN (good HTML structure)
+- Local league websites (often simpler)
+
+### More Challenging (Dynamic Content)
+- Flashscore (JavaScript-heavy)
+- LiveScore (dynamic updates)
+- Most modern sports sites
+
+## Browser Console Commands
+
+Control scraping from browser console (F12):
+
+```javascript
+// Scrape now
 footballFetcher.fetchAllResults();
 
-// Stop auto-refresh
+// Stop auto-scraping
 footballFetcher.stopAutoRefresh();
 
-// Start auto-refresh
+// Start auto-scraping
 footballFetcher.startAutoRefresh();
 
 // Check status
 footballFetcher.getStatus();
 ```
 
-## Troubleshooting
+## Best Practices
 
-### "API key not configured" message
-- Make sure you've replaced `'YOUR_API_KEY_HERE'` with your actual API key
-- API key should be a string in quotes
+1. **Respect robots.txt** - Check website's scraping policy
+2. **Rate limiting** - Don't scrape more often than every 5 minutes
+3. **User agents** - Identify your scraper appropriately
+4. **Error handling** - Gracefully handle failures
+5. **Caching** - Store results to reduce requests
+6. **Fallback** - Keep static data as backup
+7. **Monitoring** - Log errors and successful scrapes
+8. **Updates** - Regularly check if parsers still work
 
-### No data updates
-- Check browser console (F12) for error messages
-- Verify your API key is valid
-- Check if you've exceeded rate limits
-- Ensure `enabled: true` in config.js
+## Ethical Considerations
 
-### CORS errors
-- Some APIs require CORS configuration
-- You may need to run through a local server or proxy
-- For local testing, use a simple HTTP server:
-  ```bash
-  python -m http.server 8000
-  # or
-  npx http-server
-  ```
+- Only scrape publicly available data
+- Respect website terms of service
+- Don't overload servers with requests
+- Consider using official APIs when available
+- Attribute data sources appropriately
+- Be prepared for your scraper to break when sites update
 
-### Rate limit errors
-- Increase `refreshInterval` to fetch less frequently
-- Free tier: max 10 requests/minute
-- Each fetch makes 2 requests (one per league)
+## Alternative Approach: Use APIs
 
-## Data Privacy
+If scraping proves too unreliable, consider:
 
-- API key is stored in `config.js` (client-side only)
-- Never commit `config.js` with your real API key to public repositories
-- Consider using environment variables for production deployments
+1. **football-data.org** - Free API for football data
+2. **API-Football** - Comprehensive football API
+3. **TheSportsDB** - Free sports data API
+4. **Official league APIs** - Some leagues provide APIs
 
-## Disabling Auto-Fetch
-
-To disable and return to static data:
-
-1. Open `config.js`
-2. Set `enabled: false`
-3. Refresh the browser
-
-The site will work normally with the static data in `data.js`
+See previous API-SETUP.md version for API integration guide.
 
 ## Production Deployment
 
-For production use:
+For production:
 
-1. **Never commit your API key** to version control
-2. Use environment variables or a backend proxy
-3. Implement proper error handling
-4. Add rate limit management
-5. Consider caching to reduce API calls
-6. Monitor API usage
+1. **Use backend scraper** (not browser method)
+2. **Implement caching** to reduce scraping frequency
+3. **Add monitoring** to detect parser breakage
+4. **Set up alerts** for scraping failures
+5. **Use database** instead of in-memory cache
+6. **Consider cloud functions** (AWS Lambda, Google Cloud Functions)
+7. **Implement retry logic** with exponential backoff
 
-## Alternative: Backend Proxy
-
-For better security and control, consider:
-
-1. Create a simple backend (Node.js, Python, etc.)
-2. Backend fetches from football API
-3. Frontend fetches from your backend
-4. This keeps API keys server-side and allows caching
-
-Example backend structure:
+Example production setup:
 ```
-backend/
-  ├── server.js       # Express server
-  ├── api-fetcher.js  # Fetches from football API
-  └── cache.js        # Caches results
+Frontend (Static HTML)
+    ↓
+Backend API (Node.js)
+    ↓
+Scraper Service (separate process)
+    ↓
+Database (PostgreSQL/MongoDB)
 ```
+
+## Troubleshooting Checklist
+
+- [ ] Is scraping enabled in config.js?
+- [ ] Is CORS proxy working (for browser method)?
+- [ ] Are CSS selectors correct for target website?
+- [ ] Is website blocking automated access?
+- [ ] Check browser console for errors
+- [ ] Verify network requests in DevTools
+- [ ] Test with simple HTML page first
+- [ ] Try different source website
+- [ ] Consider using backend method instead
 
 ## Support
 
-For issues or questions:
-- Check football-data.org documentation: https://www.football-data.org/documentation/quickstart
-- Review browser console for errors
-- Verify API key and rate limits
+Web scraping is inherently fragile and requires maintenance. Expect:
+- Regular parser updates as websites change
+- Occasional scraping failures
+- Need for fallback to static data
+- Potential IP blocks if scraping too aggressively
 
-## Future Enhancements
-
-Potential improvements:
-- Support for more football APIs
-- WebSocket connections for real-time updates
-- Push notifications for new results
-- Historical data caching
-- Offline support
+For more reliable data, consider using official APIs instead of scraping.

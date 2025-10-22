@@ -1,37 +1,43 @@
-// API Configuration for fetching live football results
-// You can use football-data.org (free tier available) or other football APIs
+// Configuration for web scraping football results
+// Scrapes results from websites at configurable intervals
 
 const apiConfig = {
-    // Enable/disable auto-fetch (set to true to enable live updates)
+    // Enable/disable auto-scraping (set to true to enable live updates)
     enabled: false,
 
-    // API provider: 'football-data' or 'custom'
-    provider: 'football-data',
+    // Scraping method: 'browser' (with CORS proxy) or 'backend' (requires server)
+    method: 'browser',
 
-    // Your API key (get free key from https://www.football-data.org/)
-    apiKey: 'ff9975a9aee649d1b668ea93721b6a59',
+    // CORS proxy for browser-based scraping (free options available)
+    corsProxy: 'https://api.allorigins.win/raw?url=',
+    // Alternative proxies:
+    // 'https://corsproxy.io/?',
+    // 'https://api.codetabs.com/v1/proxy?quest=',
 
     // Auto-refresh interval in milliseconds (default: 5 minutes)
+    // Note: Be respectful - don't scrape too frequently!
     refreshInterval: 300000, // 5 minutes
 
-    // API endpoints
-    endpoints: {
-        'football-data': {
-            baseUrl: 'https://api.football-data.org/v4',
-            allsvenskan: '/competitions/SL/matches',  // Swedish Allsvenskan
-            premierleague: '/competitions/PL/matches'  // English Premier League
+    // Target websites to scrape
+    sources: {
+        allsvenskan: {
+            url: 'https://www.flashscore.com/football/sweden/allsvenskan/results/',
+            name: 'Allsvenskan',
+            parser: 'flashscore'
         },
-        'custom': {
-            baseUrl: 'YOUR_CUSTOM_API_URL',
-            allsvenskan: '/allsvenskan/matches',
-            premierleague: '/premierleague/matches'
+        premierleague: {
+            url: 'https://www.flashscore.com/football/england/premier-league/results/',
+            name: 'Premier League',
+            parser: 'flashscore'
         }
     },
 
-    // Match status filters
-    filters: {
-        status: 'FINISHED', // FINISHED, SCHEDULED, LIVE, etc.
-        limit: 30 // Number of recent matches to fetch
+    // Scraping options
+    options: {
+        maxResults: 30,        // Maximum number of results to scrape per league
+        timeout: 10000,        // Request timeout in milliseconds
+        retryAttempts: 2,      // Number of retry attempts on failure
+        respectRobotsTxt: true // Be a good web citizen
     }
 };
 

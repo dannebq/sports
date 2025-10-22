@@ -10,8 +10,9 @@ A minimalist, plain-text style website for displaying real football match result
 - **Responsive Design**: Works on desktop, tablet, and mobile devices
 - **Filter System**: Filter by league and matchday
 - **Real Data**: Contains actual match results from recent rounds/matchdays
-- **Auto-Refresh**: Optional automatic fetching of live results at configurable intervals
-- **Manual Refresh**: Refresh button to fetch latest results on demand
+- **Auto-Scraping**: Optional automatic web scraping of live results at configurable intervals
+- **Manual Refresh**: Refresh button to scrape latest results on demand
+- **Two Scraping Methods**: Browser-based (simple) or backend (reliable)
 
 ## Leagues Included
 
@@ -27,8 +28,9 @@ A minimalist, plain-text style website for displaying real football match result
 ├── startlists.html     # Fixtures page
 ├── styles.css          # Plain text stylesheet
 ├── data.js            # Static match data (fallback)
-├── config.js          # API configuration
-├── api-fetch.js       # Auto-fetch functionality
+├── config.js          # Web scraping configuration
+├── api-fetch.js       # Web scraper functionality
+├── backend-scraper.js # Node.js backend scraper (optional)
 ├── main.js            # JavaScript for home page
 ├── results.js         # JavaScript for results page
 ├── startlists.js      # JavaScript for fixtures page
@@ -45,19 +47,25 @@ A minimalist, plain-text style website for displaying real football match result
 3. Navigate to "Fixtures" to see upcoming fixtures
 4. Use the filter dropdowns to narrow down by league or matchday
 
-### Advanced Usage (Live API Updates)
+### Advanced Usage (Live Web Scraping)
 
 Want live, auto-updating results? See **[API-SETUP.md](API-SETUP.md)** for instructions on:
-- Enabling automatic result fetching
-- Configuring refresh intervals
-- Getting a free API key
-- Manual refresh controls
+- Enabling automatic web scraping
+- Configuring scrape intervals
+- Two methods: browser-based or backend
+- Custom parsers for different websites
 
-**Quick setup:**
-1. Get free API key from football-data.org
-2. Edit `config.js` and add your API key
-3. Set `enabled: true` in config.js
-4. Reload the page
+**Quick setup (Browser Method):**
+1. Edit `config.js` and set `enabled: true`
+2. Choose a CORS proxy
+3. Reload the page
+4. Results scrape every 5 minutes
+
+**Recommended setup (Backend Method):**
+1. Install Node.js
+2. Run `node backend-scraper.js`
+3. Configure frontend to use backend
+4. More reliable and no CORS issues
 
 ## Real Match Data
 
