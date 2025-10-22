@@ -84,18 +84,16 @@ function displayStartLists() {
 
         return `
             <div class="startlist-container">
-                <div style="padding: 1.5rem; background-color: #f8f9fa; border-bottom: 2px solid #667eea;">
-                    <h4 style="margin-bottom: 0.5rem;">${event.name}</h4>
-                    <p style="color: #666;">
-                        ${event.location} - ${formatDate(event.date)}
-                        ${event.status === 'upcoming' ? '<span style="color: #667eea; font-weight: 600;"> (Upcoming)</span>' : ''}
-                    </p>
+                <div style="padding: 10px; border-bottom: 1px solid #000;">
+                    <strong>${event.name}</strong><br>
+                    ${event.location} - ${formatDate(event.date)}
+                    ${event.status === 'upcoming' ? ' (Upcoming)' : ''}
                 </div>
                 <div class="table-wrapper">
                     <table>
                         <thead>
                             <tr>
-                                <th>Start Order</th>
+                                <th>Order</th>
                                 <th>Bib</th>
                                 <th>Athlete</th>
                                 <th>Country</th>
@@ -105,9 +103,9 @@ function displayStartLists() {
                         <tbody>
                             ${eventStartList.map(entry => `
                                 <tr>
-                                    <td><strong>${entry.startOrder}</strong></td>
-                                    <td><span class="bib-number">${entry.bib}</span></td>
-                                    <td><strong>${entry.athlete}</strong></td>
+                                    <td>${entry.startOrder}</td>
+                                    <td class="bib-number">${entry.bib}</td>
+                                    <td>${entry.athlete}</td>
                                     <td class="country">${entry.country}</td>
                                     <td class="time">${entry.startTime}</td>
                                 </tr>

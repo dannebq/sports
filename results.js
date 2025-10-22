@@ -72,9 +72,9 @@ function displayResults() {
 
         return `
             <div class="results-container">
-                <div style="padding: 1.5rem; background-color: #f8f9fa; border-bottom: 2px solid #667eea;">
-                    <h4 style="margin-bottom: 0.5rem;">${event.name}</h4>
-                    <p style="color: #666;">${event.location} - ${formatDate(event.date)}</p>
+                <div style="padding: 10px; border-bottom: 1px solid #000;">
+                    <strong>${event.name}</strong><br>
+                    ${event.location} - ${formatDate(event.date)}
                 </div>
                 <div class="table-wrapper">
                     <table>
@@ -91,9 +91,9 @@ function displayResults() {
                         <tbody>
                             ${eventResults.map(result => `
                                 <tr>
-                                    <td class="position position-${result.position}">${result.position}</td>
-                                    <td><span class="bib-number">${result.bib}</span></td>
-                                    <td><strong>${result.athlete}</strong></td>
+                                    <td class="position position-${result.position}">${result.position}.</td>
+                                    <td class="bib-number">${result.bib}</td>
+                                    <td>${result.athlete}</td>
                                     <td class="country">${result.country}</td>
                                     <td class="time">${result.time}</td>
                                     <td>${result.diff || '-'}</td>
