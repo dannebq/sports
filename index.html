@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Football Results</title>
+    <title>Längdskidor</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,12 +11,11 @@
         <nav class="navbar">
             <div class="container">
                 <div class="logo">
-                    <h1>Football Results</h1>
+                    <h1>Längdskidor</h1>
                 </div>
                 <ul class="nav-menu">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="results.html">Results</a></li>
-                    <li><a href="startlists.html">Fixtures</a></li>
+                    <li><a href="index.html" class="active">Hem</a></li>
+                    <li><a href="schedule-worldcup.html">Världscup 2025-26</a></li>
                 </ul>
             </div>
         </nav>
@@ -25,50 +24,31 @@
     <main>
         <section class="hero">
             <div class="container">
-                <h2>Football Results</h2>
-                <p>Allsvenskan and Premier League results and fixtures</p>
+                <h2>Längdskidor</h2>
+                <p>Schema och resultat för världscupen</p>
             </div>
         </section>
 
         <section class="sports-grid">
             <div class="container">
-                <h3>Leagues</h3>
+                <h3>Tävlingar</h3>
                 <div class="grid">
                     <div class="sport-card">
                         <div class="sport-icon">⛷️</div>
-                        <h4>Allsvenskan</h4>
-                        <p>Swedish top division - Latest results and upcoming fixtures</p>
-                        <a href="results.html?sport=allsvenskan" class="btn">View Results</a>
-                    </div>
-                    <div class="sport-card">
-                        <div class="sport-icon">🎿</div>
-                        <h4>Premier League</h4>
-                        <p>English top division - Latest results and upcoming fixtures</p>
-                        <a href="results.html?sport=premierleague" class="btn">View Results</a>
+                        <h4>Världscupen 2025-26</h4>
+                        <p>Komplett schema för hela världscupsäsongen och Tour de Ski</p>
+                        <a href="schedule-worldcup.html" class="btn">Se schemat</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="upcoming-events">
-            <div class="container">
-                <h3>Upcoming Fixtures</h3>
-                <div class="event-list" id="upcoming-events">
-                    <!-- Events will be loaded by JavaScript -->
-                </div>
-            </div>
-        </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>Football Results - 2025</p>
+            <p>Längdskidor - 2025</p>
         </div>
     </footer>
-
-    <script src="data.js"></script>
-    <script src="config.js"></script>
-    <script src="api-fetch.js"></script>
-    <script src="main.js"></script>
 </body>
 </html>
