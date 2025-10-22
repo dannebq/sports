@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
 function initializeFilters() {
     const sportFilter = document.getElementById('sport-filter');
     const eventFilter = document.getElementById('event-filter');
-    const genderFilter = document.getElementById('gender-filter');
 
     // Update event filter when sport changes
     sportFilter.addEventListener('change', function() {
@@ -17,7 +16,6 @@ function initializeFilters() {
     });
 
     eventFilter.addEventListener('change', displayResults);
-    genderFilter.addEventListener('change', displayResults);
 
     // Initialize event filter
     updateEventFilter();
@@ -39,9 +37,9 @@ function updateEventFilter() {
         filteredEvents = filteredEvents.filter(event => event.sport === selectedSport);
     }
 
-    eventFilter.innerHTML = '<option value="">All Events</option>' +
+    eventFilter.innerHTML = '<option value="">All Matchdays</option>' +
         filteredEvents.map(event =>
-            `<option value="${event.id}">${event.name}</option>`
+            `<option value="${event.id}">${event.league} - ${event.name}</option>`
         ).join('');
 }
 
@@ -49,7 +47,6 @@ function displayResults() {
     const resultsDisplay = document.getElementById('results-display');
     const sportFilter = document.getElementById('sport-filter').value;
     const eventFilter = document.getElementById('event-filter').value;
-    const genderFilter = document.getElementById('gender-filter').value;
 
     // Filter events
     let filteredEvents = sportsData.events.filter(event => {
@@ -57,7 +54,6 @@ function displayResults() {
         if (!hasResults || event.status !== 'completed') return false;
         if (sportFilter && event.sport !== sportFilter) return false;
         if (eventFilter && event.id !== parseInt(eventFilter)) return false;
-        if (genderFilter && event.gender !== genderFilter) return false;
         return true;
     });
 
@@ -73,30 +69,28 @@ function displayResults() {
         return `
             <div class="results-container">
                 <div style="padding: 10px; border-bottom: 1px solid #000;">
-                    <strong>${event.name}</strong><br>
-                    ${event.location} - ${formatDate(event.date)}
+                    <strong>${event.league} - ${event.name}</strong><br>
+                    ${formatDate(event.date)}
                 </div>
                 <div class="table-wrapper">
                     <table>
                         <thead>
                             <tr>
-                                <th>Pos</th>
-                                <th>Bib</th>
-                                <th>Athlete</th>
-                                <th>Country</th>
-                                <th>Time</th>
-                                <th>Diff</th>
+                                <th>Home</th>
+                                <th>Score</th>
+                                <th>Away</th>
+                                <th>Stadium</th>
+                                <th>Attendance</th>
                             </tr>
                         </thead>
                         <tbody>
                             ${eventResults.map(result => `
                                 <tr>
-                                    <td class="position position-${result.position}">${result.position}.</td>
-                                    <td class="bib-number">${result.bib}</td>
-                                    <td>${result.athlete}</td>
-                                    <td class="country">${result.country}</td>
-                                    <td class="time">${result.time}</td>
-                                    <td>${result.diff || '-'}</td>
+                                    <td>${result.homeTeam}</td>
+                                    <td class="time">${result.homeScore} - ${result.awayScore}</td>
+                                    <td>${result.awayTeam}</td>
+                                    <td>${result.stadium}</td>
+                                    <td>${result.attendance}</td>
                                 </tr>
                             `).join('')}
                         </tbody>

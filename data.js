@@ -1,390 +1,314 @@
-// Sample data for sports events, results, and start lists
+// Football match data for Allsvenskan and Premier League
 
 const sportsData = {
     events: [
+        // Allsvenskan - Completed matches
         {
             id: 1,
-            name: "Men's Downhill",
-            sport: "alpine",
-            gender: "men",
-            location: "Kitzbühel, Austria",
-            date: "2025-01-25",
+            name: "Matchday 25",
+            sport: "allsvenskan",
+            league: "Allsvenskan",
+            date: "2025-10-18",
             status: "completed"
         },
         {
             id: 2,
-            name: "Women's Slalom",
-            sport: "alpine",
-            gender: "women",
-            location: "Flachau, Austria",
-            date: "2025-01-24",
+            name: "Matchday 24",
+            sport: "allsvenskan",
+            league: "Allsvenskan",
+            date: "2025-10-12",
+            status: "completed"
+        },
+        // Premier League - Completed matches
+        {
+            id: 3,
+            name: "Matchday 9",
+            sport: "premierleague",
+            league: "Premier League",
+            date: "2025-10-19",
             status: "completed"
         },
         {
-            id: 3,
-            name: "Men's 15km Classic",
-            sport: "crosscountry",
-            gender: "men",
-            location: "Davos, Switzerland",
-            date: "2025-02-15",
-            status: "upcoming"
-        },
-        {
             id: 4,
-            name: "Women's Sprint Free",
-            sport: "crosscountry",
-            gender: "women",
-            location: "Oslo, Norway",
-            date: "2025-02-20",
-            status: "upcoming"
+            name: "Matchday 8",
+            sport: "premierleague",
+            league: "Premier League",
+            date: "2025-10-05",
+            status: "completed"
         },
+        // Upcoming fixtures
         {
             id: 5,
-            name: "Men's Halfpipe",
-            sport: "snowboard",
-            gender: "men",
-            location: "Laax, Switzerland",
-            date: "2025-03-10",
+            name: "Matchday 26",
+            sport: "allsvenskan",
+            league: "Allsvenskan",
+            date: "2025-10-26",
             status: "upcoming"
         },
         {
             id: 6,
-            name: "Women's Giant Slalom",
-            sport: "alpine",
-            gender: "women",
-            location: "Kronplatz, Italy",
-            date: "2025-01-23",
-            status: "completed"
+            name: "Matchday 10",
+            sport: "premierleague",
+            league: "Premier League",
+            date: "2025-10-27",
+            status: "upcoming"
         }
     ],
 
     results: [
-        // Men's Downhill - Event 1
+        // Allsvenskan Matchday 25 Results
         {
             eventId: 1,
-            position: 1,
-            bib: 7,
-            athlete: "Marco Odermatt",
-            country: "SUI",
-            time: "1:42.34",
-            diff: ""
+            homeTeam: "Malmö FF",
+            awayTeam: "Hammarby IF",
+            homeScore: 2,
+            awayScore: 1,
+            stadium: "Eleda Stadion",
+            attendance: "21,450"
         },
         {
             eventId: 1,
-            position: 2,
-            bib: 15,
-            athlete: "Aleksander Aamodt Kilde",
-            country: "NOR",
-            time: "1:42.89",
-            diff: "+0.55"
+            homeTeam: "AIK",
+            awayTeam: "Djurgårdens IF",
+            homeScore: 1,
+            awayScore: 1,
+            stadium: "Friends Arena",
+            attendance: "31,288"
         },
         {
             eventId: 1,
-            position: 3,
-            bib: 3,
-            athlete: "Vincent Kriechmayr",
-            country: "AUT",
-            time: "1:43.12",
-            diff: "+0.78"
+            homeTeam: "IF Elfsborg",
+            awayTeam: "BK Häcken",
+            homeScore: 3,
+            awayScore: 0,
+            stadium: "Borås Arena",
+            attendance: "12,356"
         },
         {
             eventId: 1,
-            position: 4,
-            bib: 22,
-            athlete: "Matthias Mayer",
-            country: "AUT",
-            time: "1:43.45",
-            diff: "+1.11"
+            homeTeam: "IFK Göteborg",
+            awayTeam: "IFK Norrköping",
+            homeScore: 0,
+            awayScore: 2,
+            stadium: "Gamla Ullevi",
+            attendance: "15,678"
         },
         {
             eventId: 1,
-            position: 5,
-            bib: 11,
-            athlete: "Dominik Paris",
-            country: "ITA",
-            time: "1:43.67",
-            diff: "+1.33"
-        },
-        {
-            eventId: 1,
-            position: 6,
-            bib: 5,
-            athlete: "Beat Feuz",
-            country: "SUI",
-            time: "1:43.89",
-            diff: "+1.55"
-        },
-        {
-            eventId: 1,
-            position: 7,
-            bib: 19,
-            athlete: "Niels Hintermann",
-            country: "SUI",
-            time: "1:44.02",
-            diff: "+1.68"
-        },
-        {
-            eventId: 1,
-            position: 8,
-            bib: 8,
-            athlete: "Travis Ganong",
-            country: "USA",
-            time: "1:44.23",
-            diff: "+1.89"
+            homeTeam: "Kalmar FF",
+            awayTeam: "IFK Värnamo",
+            homeScore: 2,
+            awayScore: 2,
+            stadium: "Guldfågeln Arena",
+            attendance: "8,234"
         },
 
-        // Women's Slalom - Event 2
+        // Allsvenskan Matchday 24 Results
         {
             eventId: 2,
-            position: 1,
-            bib: 2,
-            athlete: "Mikaela Shiffrin",
-            country: "USA",
-            time: "1:38.45",
-            diff: ""
+            homeTeam: "Hammarby IF",
+            awayTeam: "AIK",
+            homeScore: 3,
+            awayScore: 1,
+            stadium: "Tele2 Arena",
+            attendance: "28,500"
         },
         {
             eventId: 2,
-            position: 2,
-            bib: 5,
-            athlete: "Petra Vlhova",
-            country: "SVK",
-            time: "1:38.92",
-            diff: "+0.47"
+            homeTeam: "BK Häcken",
+            awayTeam: "Malmö FF",
+            homeScore: 1,
+            awayScore: 2,
+            stadium: "Bravida Arena",
+            attendance: "6,789"
         },
         {
             eventId: 2,
-            position: 3,
-            bib: 1,
-            athlete: "Wendy Holdener",
-            country: "SUI",
-            time: "1:39.23",
-            diff: "+0.78"
-        },
-        {
-            eventId: 2,
-            position: 4,
-            bib: 11,
-            athlete: "Katharina Liensberger",
-            country: "AUT",
-            time: "1:39.56",
-            diff: "+1.11"
-        },
-        {
-            eventId: 2,
-            position: 5,
-            bib: 7,
-            athlete: "Sara Hector",
-            country: "SWE",
-            time: "1:39.78",
-            diff: "+1.33"
+            homeTeam: "Djurgårdens IF",
+            awayTeam: "IF Elfsborg",
+            homeScore: 2,
+            awayScore: 2,
+            stadium: "Tele2 Arena",
+            attendance: "19,234"
         },
 
-        // Women's Giant Slalom - Event 6
+        // Premier League Matchday 9 Results
         {
-            eventId: 6,
-            position: 1,
-            bib: 1,
-            athlete: "Sara Hector",
-            country: "SWE",
-            time: "2:05.34",
-            diff: ""
+            eventId: 3,
+            homeTeam: "Manchester City",
+            awayTeam: "Arsenal",
+            homeScore: 2,
+            awayScore: 2,
+            stadium: "Etihad Stadium",
+            attendance: "53,451"
         },
         {
-            eventId: 6,
-            position: 2,
-            bib: 3,
-            athlete: "Lara Gut-Behrami",
-            country: "SUI",
-            time: "2:05.67",
-            diff: "+0.33"
+            eventId: 3,
+            homeTeam: "Liverpool",
+            awayTeam: "Chelsea",
+            homeScore: 3,
+            awayScore: 1,
+            stadium: "Anfield",
+            attendance: "53,287"
         },
         {
-            eventId: 6,
-            position: 3,
-            bib: 5,
-            athlete: "Federica Brignone",
-            country: "ITA",
-            time: "2:05.98",
-            diff: "+0.64"
+            eventId: 3,
+            homeTeam: "Manchester United",
+            awayTeam: "Tottenham Hotspur",
+            homeScore: 1,
+            awayScore: 2,
+            stadium: "Old Trafford",
+            attendance: "73,562"
         },
         {
-            eventId: 6,
-            position: 4,
-            bib: 2,
-            athlete: "Mikaela Shiffrin",
-            country: "USA",
-            time: "2:06.12",
-            diff: "+0.78"
+            eventId: 3,
+            homeTeam: "Newcastle United",
+            awayTeam: "Brighton & Hove Albion",
+            homeScore: 1,
+            awayScore: 0,
+            stadium: "St James' Park",
+            attendance: "52,234"
         },
         {
-            eventId: 6,
-            position: 5,
-            bib: 8,
-            athlete: "Marta Bassino",
-            country: "ITA",
-            time: "2:06.45",
-            diff: "+1.11"
+            eventId: 3,
+            homeTeam: "Aston Villa",
+            awayTeam: "West Ham United",
+            homeScore: 2,
+            awayScore: 1,
+            stadium: "Villa Park",
+            attendance: "41,789"
+        },
+        {
+            eventId: 3,
+            homeTeam: "Brentford",
+            awayTeam: "Wolverhampton Wanderers",
+            homeScore: 3,
+            awayScore: 2,
+            stadium: "Gtech Community Stadium",
+            attendance: "17,123"
+        },
+
+        // Premier League Matchday 8 Results
+        {
+            eventId: 4,
+            homeTeam: "Arsenal",
+            awayTeam: "Liverpool",
+            homeScore: 2,
+            awayScore: 3,
+            stadium: "Emirates Stadium",
+            attendance: "60,234"
+        },
+        {
+            eventId: 4,
+            homeTeam: "Chelsea",
+            awayTeam: "Newcastle United",
+            homeScore: 1,
+            awayScore: 1,
+            stadium: "Stamford Bridge",
+            attendance: "39,876"
+        },
+        {
+            eventId: 4,
+            homeTeam: "Tottenham Hotspur",
+            awayTeam: "Manchester City",
+            homeScore: 1,
+            awayScore: 2,
+            stadium: "Tottenham Hotspur Stadium",
+            attendance: "61,567"
         }
     ],
 
     startLists: [
-        // Men's 15km Classic - Event 3
+        // Allsvenskan Matchday 26 Fixtures
         {
-            eventId: 3,
-            startOrder: 1,
-            bib: 1,
-            athlete: "Johannes Hoesflot Klaebo",
-            country: "NOR",
-            startTime: "10:00:00"
+            eventId: 5,
+            homeTeam: "Malmö FF",
+            awayTeam: "AIK",
+            kickoffTime: "15:00",
+            stadium: "Eleda Stadion",
+            date: "2025-10-26"
         },
         {
-            eventId: 3,
-            startOrder: 2,
-            bib: 2,
-            athlete: "Alexander Bolshunov",
-            country: "RUS",
-            startTime: "10:00:30"
+            eventId: 5,
+            homeTeam: "Hammarby IF",
+            awayTeam: "IF Elfsborg",
+            kickoffTime: "15:00",
+            stadium: "Tele2 Arena",
+            date: "2025-10-26"
         },
         {
-            eventId: 3,
-            startOrder: 3,
-            bib: 3,
-            athlete: "Iivo Niskanen",
-            country: "FIN",
-            startTime: "10:01:00"
+            eventId: 5,
+            homeTeam: "BK Häcken",
+            awayTeam: "Djurgårdens IF",
+            kickoffTime: "17:30",
+            stadium: "Bravida Arena",
+            date: "2025-10-26"
         },
         {
-            eventId: 3,
-            startOrder: 4,
-            bib: 4,
-            athlete: "Sjur Roethe",
-            country: "NOR",
-            startTime: "10:01:30"
+            eventId: 5,
+            homeTeam: "IFK Norrköping",
+            awayTeam: "IFK Göteborg",
+            kickoffTime: "15:00",
+            stadium: "Östgötaporten",
+            date: "2025-10-26"
         },
         {
-            eventId: 3,
-            startOrder: 5,
-            bib: 5,
-            athlete: "Dario Cologna",
-            country: "SUI",
-            startTime: "10:02:00"
-        },
-        {
-            eventId: 3,
-            startOrder: 6,
-            bib: 6,
-            athlete: "Emil Iversen",
-            country: "NOR",
-            startTime: "10:02:30"
-        },
-        {
-            eventId: 3,
-            startOrder: 7,
-            bib: 7,
-            athlete: "Martin Loewstroem Nyenget",
-            country: "NOR",
-            startTime: "10:03:00"
-        },
-        {
-            eventId: 3,
-            startOrder: 8,
-            bib: 8,
-            athlete: "Hans Christer Holund",
-            country: "NOR",
-            startTime: "10:03:30"
+            eventId: 5,
+            homeTeam: "IFK Värnamo",
+            awayTeam: "Kalmar FF",
+            kickoffTime: "15:00",
+            stadium: "Finnvedsvallen",
+            date: "2025-10-26"
         },
 
-        // Women's Sprint Free - Event 4
+        // Premier League Matchday 10 Fixtures
         {
-            eventId: 4,
-            startOrder: 1,
-            bib: 1,
-            athlete: "Jessie Diggins",
-            country: "USA",
-            startTime: "12:00:00"
+            eventId: 6,
+            homeTeam: "Arsenal",
+            awayTeam: "Manchester United",
+            kickoffTime: "16:30",
+            stadium: "Emirates Stadium",
+            date: "2025-10-27"
         },
         {
-            eventId: 4,
-            startOrder: 2,
-            bib: 2,
-            athlete: "Therese Johaug",
-            country: "NOR",
-            startTime: "12:00:15"
+            eventId: 6,
+            homeTeam: "Chelsea",
+            awayTeam: "Manchester City",
+            kickoffTime: "14:00",
+            stadium: "Stamford Bridge",
+            date: "2025-10-27"
         },
         {
-            eventId: 4,
-            startOrder: 3,
-            bib: 3,
-            athlete: "Ebba Andersson",
-            country: "SWE",
-            startTime: "12:00:30"
+            eventId: 6,
+            homeTeam: "Liverpool",
+            awayTeam: "Tottenham Hotspur",
+            kickoffTime: "16:30",
+            stadium: "Anfield",
+            date: "2025-10-27"
         },
         {
-            eventId: 4,
-            startOrder: 4,
-            bib: 4,
-            athlete: "Natalia Nepryaeva",
-            country: "RUS",
-            startTime: "12:00:45"
+            eventId: 6,
+            homeTeam: "Brighton & Hove Albion",
+            awayTeam: "Aston Villa",
+            kickoffTime: "14:00",
+            stadium: "Amex Stadium",
+            date: "2025-10-27"
         },
         {
-            eventId: 4,
-            startOrder: 5,
-            bib: 5,
-            athlete: "Frida Karlsson",
-            country: "SWE",
-            startTime: "12:01:00"
-        },
-
-        // Men's Halfpipe - Event 5
-        {
-            eventId: 5,
-            startOrder: 1,
-            bib: 1,
-            athlete: "Shaun White",
-            country: "USA",
-            startTime: "14:00:00"
+            eventId: 6,
+            homeTeam: "West Ham United",
+            awayTeam: "Newcastle United",
+            kickoffTime: "14:00",
+            stadium: "London Stadium",
+            date: "2025-10-27"
         },
         {
-            eventId: 5,
-            startOrder: 2,
-            bib: 2,
-            athlete: "Yuto Totsuka",
-            country: "JPN",
-            startTime: "14:02:00"
-        },
-        {
-            eventId: 5,
-            startOrder: 3,
-            bib: 3,
-            athlete: "Scotty James",
-            country: "AUS",
-            startTime: "14:04:00"
-        },
-        {
-            eventId: 5,
-            startOrder: 4,
-            bib: 4,
-            athlete: "Ayumu Hirano",
-            country: "JPN",
-            startTime: "14:06:00"
-        },
-        {
-            eventId: 5,
-            startOrder: 5,
-            bib: 5,
-            athlete: "Jan Scherrer",
-            country: "SUI",
-            startTime: "14:08:00"
-        },
-        {
-            eventId: 5,
-            startOrder: 6,
-            bib: 6,
-            athlete: "Andre Hoeflich",
-            country: "GER",
-            startTime: "14:10:00"
+            eventId: 6,
+            homeTeam: "Wolverhampton Wanderers",
+            awayTeam: "Brentford",
+            kickoffTime: "12:30",
+            stadium: "Molineux Stadium",
+            date: "2025-10-27"
         }
     ]
 };

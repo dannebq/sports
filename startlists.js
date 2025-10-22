@@ -1,4 +1,4 @@
-// JavaScript for the start lists page
+// JavaScript for the fixtures page
 
 document.addEventListener('DOMContentLoaded', function() {
     initializeFilters();
@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function() {
 function initializeFilters() {
     const sportFilter = document.getElementById('sport-filter');
     const eventFilter = document.getElementById('event-filter');
-    const genderFilter = document.getElementById('gender-filter');
 
     // Update event filter when sport changes
     sportFilter.addEventListener('change', function() {
@@ -26,7 +25,6 @@ function initializeFilters() {
     });
 
     eventFilter.addEventListener('change', displayStartLists);
-    genderFilter.addEventListener('change', displayStartLists);
 
     // Initialize event filter
     updateEventFilter();
@@ -38,7 +36,7 @@ function updateEventFilter() {
     const selectedSport = sportFilter.value;
     const currentSelection = eventFilter.value;
 
-    // Get events with start lists
+    // Get events with fixtures
     const eventsWithStartLists = [...new Set(sportsData.startLists.map(s => s.eventId))];
 
     let filteredEvents = sportsData.events.filter(event =>
@@ -49,9 +47,9 @@ function updateEventFilter() {
         filteredEvents = filteredEvents.filter(event => event.sport === selectedSport);
     }
 
-    eventFilter.innerHTML = '<option value="">All Events</option>' +
+    eventFilter.innerHTML = '<option value="">All Matchdays</option>' +
         filteredEvents.map(event =>
-            `<option value="${event.id}" ${event.id == currentSelection ? 'selected' : ''}>${event.name}</option>`
+            `<option value="${event.id}" ${event.id == currentSelection ? 'selected' : ''}>${event.league} - ${event.name}</option>`
         ).join('');
 }
 
@@ -59,7 +57,6 @@ function displayStartLists() {
     const startlistDisplay = document.getElementById('startlist-display');
     const sportFilter = document.getElementById('sport-filter').value;
     const eventFilter = document.getElementById('event-filter').value;
-    const genderFilter = document.getElementById('gender-filter').value;
 
     // Filter events
     let filteredEvents = sportsData.events.filter(event => {
@@ -67,47 +64,45 @@ function displayStartLists() {
         if (!hasStartList) return false;
         if (sportFilter && event.sport !== sportFilter) return false;
         if (eventFilter && event.id !== parseInt(eventFilter)) return false;
-        if (genderFilter && event.gender !== genderFilter) return false;
         return true;
     });
 
     if (filteredEvents.length === 0) {
-        startlistDisplay.innerHTML = '<div class="no-data">No start lists found for the selected filters.</div>';
+        startlistDisplay.innerHTML = '<div class="no-data">No fixtures found for the selected filters.</div>';
         return;
     }
 
-    // Display start lists for each event
+    // Display fixtures for each event
     startlistDisplay.innerHTML = filteredEvents.map(event => {
         const eventStartList = sportsData.startLists
-            .filter(s => s.eventId === event.id)
-            .sort((a, b) => a.startOrder - b.startOrder);
+            .filter(s => s.eventId === event.id);
 
         return `
             <div class="startlist-container">
                 <div style="padding: 10px; border-bottom: 1px solid #000;">
-                    <strong>${event.name}</strong><br>
-                    ${event.location} - ${formatDate(event.date)}
+                    <strong>${event.league} - ${event.name}</strong><br>
+                    ${formatDate(event.date)}
                     ${event.status === 'upcoming' ? ' (Upcoming)' : ''}
                 </div>
                 <div class="table-wrapper">
                     <table>
                         <thead>
                             <tr>
-                                <th>Order</th>
-                                <th>Bib</th>
-                                <th>Athlete</th>
-                                <th>Country</th>
-                                <th>Start Time</th>
+                                <th>Home</th>
+                                <th>vs</th>
+                                <th>Away</th>
+                                <th>Kickoff</th>
+                                <th>Stadium</th>
                             </tr>
                         </thead>
                         <tbody>
                             ${eventStartList.map(entry => `
                                 <tr>
-                                    <td>${entry.startOrder}</td>
-                                    <td class="bib-number">${entry.bib}</td>
-                                    <td>${entry.athlete}</td>
-                                    <td class="country">${entry.country}</td>
-                                    <td class="time">${entry.startTime}</td>
+                                    <td>${entry.homeTeam}</td>
+                                    <td>-</td>
+                                    <td>${entry.awayTeam}</td>
+                                    <td class="time">${entry.kickoffTime}</td>
+                                    <td>${entry.stadium}</td>
                                 </tr>
                             `).join('')}
                         </tbody>

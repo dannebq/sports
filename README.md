@@ -1,69 +1,67 @@
-# Sport Results Website
+# Football Results Website
 
-A modern, responsive website for displaying sport results and start lists, with a focus on winter sports like skiing.
+A minimalist, plain-text style website for displaying football match results and fixtures for Allsvenskan and Premier League.
 
 ## Features
 
-- **Home Page**: Overview of featured sports and upcoming events
-- **Results Page**: Display completed competition results with filtering options
-- **Start Lists Page**: View start lists for upcoming and past events
+- **Home Page**: Overview of leagues and upcoming fixtures
+- **Results Page**: Display completed match results with filtering options
+- **Fixtures Page**: View upcoming fixtures with kickoff times
 - **Responsive Design**: Works on desktop, tablet, and mobile devices
-- **Filter System**: Filter by sport, event, and gender
+- **Filter System**: Filter by league and matchday
 
-## Sports Included
+## Leagues Included
 
-- Alpine Skiing (Downhill, Slalom, Giant Slalom, Super-G)
-- Cross-Country Skiing (Sprint, Distance, Relay)
-- Snowboarding (Halfpipe, Slopestyle, Cross)
-- Athletics (Track & Field)
+- **Allsvenskan**: Swedish top division
+- **Premier League**: English top division
 
 ## File Structure
 
 ```
 /
 ├── index.html          # Home page
-├── results.html        # Results page
-├── startlists.html     # Start lists page
-├── styles.css          # Main stylesheet
-├── data.js            # Sample data for events, results, and start lists
+├── results.html        # Match results page
+├── startlists.html     # Fixtures page
+├── styles.css          # Plain text stylesheet
+├── data.js            # Match data, results, and fixtures
 ├── main.js            # JavaScript for home page
 ├── results.js         # JavaScript for results page
-├── startlists.js      # JavaScript for start lists page
+├── startlists.js      # JavaScript for fixtures page
 └── README.md          # This file
 ```
 
 ## How to Use
 
 1. Open `index.html` in a web browser to view the home page
-2. Navigate to "Results" to see completed competition results
-3. Navigate to "Start Lists" to see upcoming event start lists
-4. Use the filter dropdowns to narrow down results by sport, event, or gender
+2. Navigate to "Results" to see completed match results
+3. Navigate to "Fixtures" to see upcoming fixtures
+4. Use the filter dropdowns to narrow down by league or matchday
 
 ## Sample Data
 
 The website includes sample data for:
-- 6 events (3 completed, 3 upcoming)
-- Results for Alpine Skiing events (Men's Downhill, Women's Slalom, Women's Giant Slalom)
-- Start lists for Cross-Country and Snowboarding events
+- 4 completed matchdays (2 Allsvenskan, 2 Premier League)
+- 2 upcoming matchdays (1 Allsvenskan, 1 Premier League)
+- Realistic match results with scores, stadiums, and attendance
+- Upcoming fixtures with kickoff times and venues
 
 ## Customization
 
 To add your own data:
 
 1. Open `data.js`
-2. Add events to the `events` array
+2. Add matchdays to the `events` array
 3. Add results to the `results` array (use the event ID to link them)
-4. Add start lists to the `startLists` array (use the event ID to link them)
+4. Add fixtures to the `startLists` array (use the event ID to link them)
 
 ### Event Object Structure
 ```javascript
 {
     id: 1,                          // Unique identifier
-    name: "Men's Downhill",         // Event name
-    sport: "alpine",                // Sport type
-    gender: "men",                  // Gender category
-    location: "Location",           // Event location
-    date: "2025-01-25",            // Event date (YYYY-MM-DD)
+    name: "Matchday 25",            // Matchday name
+    sport: "allsvenskan",           // League identifier
+    league: "Allsvenskan",          // League display name
+    date: "2025-10-18",            // Match date (YYYY-MM-DD)
     status: "completed"             // Status: "completed" or "upcoming"
 }
 ```
@@ -72,31 +70,40 @@ To add your own data:
 ```javascript
 {
     eventId: 1,                     // Links to event ID
-    position: 1,                    // Final position
-    bib: 7,                        // Bib number
-    athlete: "Athlete Name",        // Athlete name
-    country: "SUI",                // Country code (3 letters)
-    time: "1:42.34",               // Time result
-    diff: "+0.55"                  // Time difference from leader
+    homeTeam: "Malmö FF",           // Home team name
+    awayTeam: "Hammarby IF",        // Away team name
+    homeScore: 2,                   // Home team score
+    awayScore: 1,                   // Away team score
+    stadium: "Eleda Stadion",       // Stadium name
+    attendance: "21,450"            // Match attendance
 }
 ```
 
-### Start List Object Structure
+### Fixture Object Structure
 ```javascript
 {
-    eventId: 3,                     // Links to event ID
-    startOrder: 1,                  // Start order position
-    bib: 1,                        // Bib number
-    athlete: "Athlete Name",        // Athlete name
-    country: "NOR",                // Country code (3 letters)
-    startTime: "10:00:00"          // Start time (HH:MM:SS)
+    eventId: 5,                     // Links to event ID
+    homeTeam: "Malmö FF",           // Home team name
+    awayTeam: "AIK",                // Away team name
+    kickoffTime: "15:00",           // Kickoff time (HH:MM)
+    stadium: "Eleda Stadion",       // Stadium name
+    date: "2025-10-26"             // Match date (YYYY-MM-DD)
 }
 ```
+
+## Design
+
+The website features a plain-text, minimalist design:
+- Monospace font (Courier New)
+- Black and white color scheme
+- Simple borders and dotted lines
+- No gradients, shadows, or animations
+- Classic newspaper/terminal style
 
 ## Technologies Used
 
 - HTML5
-- CSS3 (with Flexbox and Grid)
+- CSS3
 - Vanilla JavaScript (ES6+)
 - No external dependencies required
 

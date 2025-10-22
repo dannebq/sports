@@ -15,18 +15,17 @@ function displayUpcomingEvents() {
         .sort((a, b) => new Date(a.date) - new Date(b.date));
 
     if (upcomingEvents.length === 0) {
-        eventsContainer.innerHTML = '<div class="no-data">No upcoming events scheduled.</div>';
+        eventsContainer.innerHTML = '<div class="no-data">No upcoming fixtures scheduled.</div>';
         return;
     }
 
     eventsContainer.innerHTML = upcomingEvents.map(event => `
         <div class="event-item">
             <div class="event-info">
-                <h4>${event.name}</h4>
-                <p>${event.location}</p>
+                <h4>${event.league} - ${event.name}</h4>
+                <p>${formatDate(event.date)}</p>
             </div>
-            <div class="event-date">${formatDate(event.date)}</div>
-            <a href="startlists.html?event=${event.id}" class="btn">View Start List</a>
+            <a href="startlists.html?event=${event.id}" class="btn">View Fixtures</a>
         </div>
     `).join('');
 }

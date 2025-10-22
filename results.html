@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sport Results - Results</title>
+    <title>Football Results - Match Results</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,12 +11,12 @@
         <nav class="navbar">
             <div class="container">
                 <div class="logo">
-                    <h1>Sport Results</h1>
+                    <h1>Football Results</h1>
                 </div>
                 <ul class="nav-menu">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="results.html" class="active">Results</a></li>
-                    <li><a href="startlists.html">Start Lists</a></li>
+                    <li><a href="startlists.html">Fixtures</a></li>
                 </ul>
             </div>
         </nav>
@@ -25,26 +25,18 @@
     <main>
         <section>
             <div class="container">
-                <h3>Competition Results</h3>
+                <h3>Match Results</h3>
 
                 <div class="filter-section">
                     <div class="filter-controls">
                         <select id="sport-filter">
-                            <option value="">All Sports</option>
-                            <option value="alpine">Alpine Skiing</option>
-                            <option value="crosscountry">Cross-Country Skiing</option>
-                            <option value="snowboard">Snowboarding</option>
-                            <option value="athletics">Athletics</option>
+                            <option value="">All Leagues</option>
+                            <option value="allsvenskan">Allsvenskan</option>
+                            <option value="premierleague">Premier League</option>
                         </select>
 
                         <select id="event-filter">
-                            <option value="">All Events</option>
-                        </select>
-
-                        <select id="gender-filter">
-                            <option value="">All Genders</option>
-                            <option value="men">Men</option>
-                            <option value="women">Women</option>
+                            <option value="">All Matchdays</option>
                         </select>
                     </div>
                 </div>
@@ -58,7 +50,7 @@
 
     <footer>
         <div class="container">
-            <p>Sport Results - 2025</p>
+            <p>Football Results - 2025</p>
         </div>
     </footer>
 
