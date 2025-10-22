@@ -3,7 +3,7 @@
 
 const apiConfig = {
     // Enable/disable auto-fetch (set to true to enable live updates)
-    enabled: true,
+    enabled: false,
 
     // API provider: 'football-data' or 'custom'
     provider: 'football-data',
