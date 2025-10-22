@@ -3,6 +3,13 @@
 document.addEventListener('DOMContentLoaded', function() {
     initializeFilters();
     displayResults();
+    updateLastFetchTime();
+});
+
+// Listen for data updates
+window.addEventListener('sportsDataUpdated', function() {
+    displayResults();
+    updateLastFetchTime();
 });
 
 function initializeFilters() {
@@ -104,4 +111,16 @@ function displayResults() {
 function formatDate(dateString) {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return new Date(dateString).toLocaleDateString('en-US', options);
+}
+
+function updateLastFetchTime() {
+    const statusElement = document.getElementById('last-update');
+    if (!statusElement) return;
+
+    if (window.footballFetcher && footballFetcher.lastFetch) {
+        const time = footballFetcher.lastFetch.toLocaleTimeString();
+        statusElement.textContent = `Last updated: ${time}`;
+    } else {
+        statusElement.textContent = 'Using static data';
+    }
 }

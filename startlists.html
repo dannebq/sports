@@ -38,6 +38,9 @@
                         <select id="event-filter">
                             <option value="">All Matchdays</option>
                         </select>
+
+                        <button id="refresh-btn" class="refresh-btn" onclick="footballFetcher.fetchAllResults()">Refresh</button>
+                        <span id="last-update" class="last-update"></span>
                     </div>
                 </div>
 
@@ -55,6 +58,8 @@
     </footer>
 
     <script src="data.js"></script>
+    <script src="config.js"></script>
+    <script src="api-fetch.js"></script>
     <script src="startlists.js"></script>
 </body>
 </html>

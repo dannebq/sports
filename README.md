@@ -10,6 +10,8 @@ A minimalist, plain-text style website for displaying real football match result
 - **Responsive Design**: Works on desktop, tablet, and mobile devices
 - **Filter System**: Filter by league and matchday
 - **Real Data**: Contains actual match results from recent rounds/matchdays
+- **Auto-Refresh**: Optional automatic fetching of live results at configurable intervals
+- **Manual Refresh**: Refresh button to fetch latest results on demand
 
 ## Leagues Included
 
@@ -24,19 +26,38 @@ A minimalist, plain-text style website for displaying real football match result
 ├── results.html        # Match results page
 ├── startlists.html     # Fixtures page
 ├── styles.css          # Plain text stylesheet
-├── data.js            # Match data, results, and fixtures
+├── data.js            # Static match data (fallback)
+├── config.js          # API configuration
+├── api-fetch.js       # Auto-fetch functionality
 ├── main.js            # JavaScript for home page
 ├── results.js         # JavaScript for results page
 ├── startlists.js      # JavaScript for fixtures page
-└── README.md          # This file
+├── README.md          # This file
+└── API-SETUP.md       # Guide for enabling auto-fetch
 ```
 
 ## How to Use
+
+### Basic Usage (Static Data)
 
 1. Open `index.html` in a web browser to view the home page
 2. Navigate to "Results" to see completed match results
 3. Navigate to "Fixtures" to see upcoming fixtures
 4. Use the filter dropdowns to narrow down by league or matchday
+
+### Advanced Usage (Live API Updates)
+
+Want live, auto-updating results? See **[API-SETUP.md](API-SETUP.md)** for instructions on:
+- Enabling automatic result fetching
+- Configuring refresh intervals
+- Getting a free API key
+- Manual refresh controls
+
+**Quick setup:**
+1. Get free API key from football-data.org
+2. Edit `config.js` and add your API key
+3. Set `enabled: true` in config.js
+4. Reload the page
 
 ## Real Match Data
 

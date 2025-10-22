@@ -198,6 +198,29 @@ h3 {
     min-width: 150px;
 }
 
+.refresh-btn {
+    padding: 5px 15px;
+    border: 1px solid #000;
+    background-color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.refresh-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.refresh-btn:active {
+    background-color: #e0e0e0;
+}
+
+.last-update {
+    font-size: 0.85rem;
+    color: #666;
+    margin-left: 10px;
+}
+
 .results-container,
 .startlist-container {
     border: 1px solid #000;
