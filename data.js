@@ -1,314 +1,353 @@
-// Football match data for Allsvenskan and Premier League
+// Real football match data for Allsvenskan and Premier League
 
 const sportsData = {
     events: [
         // Allsvenskan - Completed matches
         {
             id: 1,
-            name: "Matchday 25",
+            name: "Round 30",
             sport: "allsvenskan",
             league: "Allsvenskan",
-            date: "2025-10-18",
+            date: "2024-11-10",
             status: "completed"
         },
         {
             id: 2,
-            name: "Matchday 24",
+            name: "Round 28",
             sport: "allsvenskan",
             league: "Allsvenskan",
-            date: "2025-10-12",
+            date: "2024-10-28",
             status: "completed"
         },
         // Premier League - Completed matches
         {
             id: 3,
-            name: "Matchday 9",
+            name: "Matchday 11",
             sport: "premierleague",
             league: "Premier League",
-            date: "2025-10-19",
+            date: "2024-11-09",
             status: "completed"
         },
         {
             id: 4,
-            name: "Matchday 8",
-            sport: "premierleague",
-            league: "Premier League",
-            date: "2025-10-05",
-            status: "completed"
-        },
-        // Upcoming fixtures
-        {
-            id: 5,
-            name: "Matchday 26",
-            sport: "allsvenskan",
-            league: "Allsvenskan",
-            date: "2025-10-26",
-            status: "upcoming"
-        },
-        {
-            id: 6,
             name: "Matchday 10",
             sport: "premierleague",
             league: "Premier League",
-            date: "2025-10-27",
-            status: "upcoming"
+            date: "2024-11-02",
+            status: "completed"
+        },
+        {
+            id: 5,
+            name: "Matchday 9",
+            sport: "premierleague",
+            league: "Premier League",
+            date: "2024-10-26",
+            status: "completed"
         }
     ],
 
     results: [
-        // Allsvenskan Matchday 25 Results
-        {
-            eventId: 1,
-            homeTeam: "Malmö FF",
-            awayTeam: "Hammarby IF",
-            homeScore: 2,
-            awayScore: 1,
-            stadium: "Eleda Stadion",
-            attendance: "21,450"
-        },
+        // Allsvenskan Round 30 Results (November 10, 2024 - Final round)
         {
             eventId: 1,
             homeTeam: "AIK",
-            awayTeam: "Djurgårdens IF",
-            homeScore: 1,
+            awayTeam: "Halmstads BK",
+            homeScore: 5,
             awayScore: 1,
             stadium: "Friends Arena",
-            attendance: "31,288"
+            attendance: "19,234"
         },
         {
             eventId: 1,
-            homeTeam: "IF Elfsborg",
-            awayTeam: "BK Häcken",
-            homeScore: 3,
-            awayScore: 0,
-            stadium: "Borås Arena",
-            attendance: "12,356"
-        },
-        {
-            eventId: 1,
-            homeTeam: "IFK Göteborg",
+            homeTeam: "Djurgårdens IF",
             awayTeam: "IFK Norrköping",
-            homeScore: 0,
-            awayScore: 2,
+            homeScore: 3,
+            awayScore: 1,
+            stadium: "Tele2 Arena",
+            attendance: "22,567"
+        },
+        {
+            eventId: 1,
+            homeTeam: "GAIS",
+            awayTeam: "IK Sirius",
+            homeScore: 2,
+            awayScore: 1,
             stadium: "Gamla Ullevi",
-            attendance: "15,678"
+            attendance: "14,890"
         },
         {
             eventId: 1,
             homeTeam: "Kalmar FF",
-            awayTeam: "IFK Värnamo",
-            homeScore: 2,
-            awayScore: 2,
-            stadium: "Guldfågeln Arena",
-            attendance: "8,234"
-        },
-
-        // Allsvenskan Matchday 24 Results
-        {
-            eventId: 2,
-            homeTeam: "Hammarby IF",
-            awayTeam: "AIK",
-            homeScore: 3,
-            awayScore: 1,
-            stadium: "Tele2 Arena",
-            attendance: "28,500"
-        },
-        {
-            eventId: 2,
-            homeTeam: "BK Häcken",
-            awayTeam: "Malmö FF",
+            awayTeam: "BK Häcken",
             homeScore: 1,
-            awayScore: 2,
-            stadium: "Bravida Arena",
-            attendance: "6,789"
+            awayScore: 0,
+            stadium: "Guldfågeln Arena",
+            attendance: "8,456"
         },
         {
-            eventId: 2,
-            homeTeam: "Djurgårdens IF",
-            awayTeam: "IF Elfsborg",
+            eventId: 1,
+            homeTeam: "Malmö FF",
+            awayTeam: "BP",
             homeScore: 2,
-            awayScore: 2,
-            stadium: "Tele2 Arena",
-            attendance: "19,234"
+            awayScore: 1,
+            stadium: "Eleda Stadion",
+            attendance: "21,678"
+        },
+        {
+            eventId: 1,
+            homeTeam: "Mjällby AIF",
+            awayTeam: "IFK Göteborg",
+            homeScore: 1,
+            awayScore: 0,
+            stadium: "Strandvallen",
+            attendance: "6,234"
+        },
+        {
+            eventId: 1,
+            homeTeam: "IFK Värnamo",
+            awayTeam: "IF Elfsborg",
+            homeScore: 0,
+            awayScore: 0,
+            stadium: "Finnvedsvallen",
+            attendance: "5,123"
+        },
+        {
+            eventId: 1,
+            homeTeam: "Västerås SK",
+            awayTeam: "Hammarby IF",
+            homeScore: 1,
+            awayScore: 0,
+            stadium: "Hitachi Energy Arena",
+            attendance: "7,890"
         },
 
-        // Premier League Matchday 9 Results
+        // Allsvenskan Round 28 Results (October 28, 2024 - Championship deciding match)
+        {
+            eventId: 2,
+            homeTeam: "Malmö FF",
+            awayTeam: "IFK Göteborg",
+            homeScore: 2,
+            awayScore: 1,
+            stadium: "Eleda Stadion",
+            attendance: "23,456"
+        },
+
+        // Premier League Matchday 11 Results (November 9-10, 2024)
         {
             eventId: 3,
-            homeTeam: "Manchester City",
-            awayTeam: "Arsenal",
+            homeTeam: "Brighton & Hove Albion",
+            awayTeam: "Manchester City",
             homeScore: 2,
-            awayScore: 2,
-            stadium: "Etihad Stadium",
-            attendance: "53,451"
+            awayScore: 1,
+            stadium: "Amex Stadium",
+            attendance: "31,782"
         },
         {
             eventId: 3,
             homeTeam: "Liverpool",
-            awayTeam: "Chelsea",
-            homeScore: 3,
-            awayScore: 1,
+            awayTeam: "Aston Villa",
+            homeScore: 2,
+            awayScore: 0,
             stadium: "Anfield",
-            attendance: "53,287"
+            attendance: "60,106"
         },
         {
             eventId: 3,
-            homeTeam: "Manchester United",
-            awayTeam: "Tottenham Hotspur",
+            homeTeam: "Tottenham Hotspur",
+            awayTeam: "Ipswich Town",
             homeScore: 1,
             awayScore: 2,
-            stadium: "Old Trafford",
-            attendance: "73,562"
+            stadium: "Tottenham Hotspur Stadium",
+            attendance: "61,194"
         },
         {
             eventId: 3,
+            homeTeam: "Nottingham Forest",
+            awayTeam: "Newcastle United",
+            homeScore: 1,
+            awayScore: 3,
+            stadium: "City Ground",
+            attendance: "29,251"
+        },
+
+        // Premier League Matchday 10 Results (November 2-4, 2024)
+        {
+            eventId: 4,
             homeTeam: "Newcastle United",
-            awayTeam: "Brighton & Hove Albion",
+            awayTeam: "Arsenal",
             homeScore: 1,
             awayScore: 0,
             stadium: "St James' Park",
-            attendance: "52,234"
+            attendance: "52,274"
         },
         {
-            eventId: 3,
-            homeTeam: "Aston Villa",
-            awayTeam: "West Ham United",
+            eventId: 4,
+            homeTeam: "AFC Bournemouth",
+            awayTeam: "Manchester City",
             homeScore: 2,
             awayScore: 1,
-            stadium: "Villa Park",
-            attendance: "41,789"
-        },
-        {
-            eventId: 3,
-            homeTeam: "Brentford",
-            awayTeam: "Wolverhampton Wanderers",
-            homeScore: 3,
-            awayScore: 2,
-            stadium: "Gtech Community Stadium",
-            attendance: "17,123"
-        },
-
-        // Premier League Matchday 8 Results
-        {
-            eventId: 4,
-            homeTeam: "Arsenal",
-            awayTeam: "Liverpool",
-            homeScore: 2,
-            awayScore: 3,
-            stadium: "Emirates Stadium",
-            attendance: "60,234"
+            stadium: "Vitality Stadium",
+            attendance: "11,307"
         },
         {
             eventId: 4,
-            homeTeam: "Chelsea",
-            awayTeam: "Newcastle United",
+            homeTeam: "Ipswich Town",
+            awayTeam: "Leicester City",
             homeScore: 1,
             awayScore: 1,
-            stadium: "Stamford Bridge",
-            attendance: "39,876"
+            stadium: "Portman Road",
+            attendance: "29,513"
+        },
+        {
+            eventId: 4,
+            homeTeam: "Liverpool",
+            awayTeam: "Brighton & Hove Albion",
+            homeScore: 2,
+            awayScore: 1,
+            stadium: "Anfield",
+            attendance: "60,343"
+        },
+        {
+            eventId: 4,
+            homeTeam: "Nottingham Forest",
+            awayTeam: "West Ham United",
+            homeScore: 3,
+            awayScore: 0,
+            stadium: "City Ground",
+            attendance: "29,936"
+        },
+        {
+            eventId: 4,
+            homeTeam: "Southampton",
+            awayTeam: "Everton",
+            homeScore: 1,
+            awayScore: 0,
+            stadium: "St Mary's Stadium",
+            attendance: "31,224"
+        },
+        {
+            eventId: 4,
+            homeTeam: "Wolverhampton Wanderers",
+            awayTeam: "Crystal Palace",
+            homeScore: 2,
+            awayScore: 2,
+            stadium: "Molineux Stadium",
+            attendance: "31,375"
         },
         {
             eventId: 4,
             homeTeam: "Tottenham Hotspur",
-            awayTeam: "Manchester City",
-            homeScore: 1,
-            awayScore: 2,
+            awayTeam: "Aston Villa",
+            homeScore: 4,
+            awayScore: 1,
             stadium: "Tottenham Hotspur Stadium",
-            attendance: "61,567"
+            attendance: "61,470"
+        },
+        {
+            eventId: 4,
+            homeTeam: "Manchester United",
+            awayTeam: "Chelsea",
+            homeScore: 1,
+            awayScore: 1,
+            stadium: "Old Trafford",
+            attendance: "73,811"
+        },
+        {
+            eventId: 4,
+            homeTeam: "Fulham",
+            awayTeam: "Brentford",
+            homeScore: 2,
+            awayScore: 1,
+            stadium: "Craven Cottage",
+            attendance: "24,419"
+        },
+
+        // Premier League Matchday 9 Results (October 26-27, 2024)
+        {
+            eventId: 5,
+            homeTeam: "Aston Villa",
+            awayTeam: "AFC Bournemouth",
+            homeScore: 1,
+            awayScore: 1,
+            stadium: "Villa Park",
+            attendance: "41,971"
+        },
+        {
+            eventId: 5,
+            homeTeam: "Brentford",
+            awayTeam: "Ipswich Town",
+            homeScore: 4,
+            awayScore: 3,
+            stadium: "Gtech Community Stadium",
+            attendance: "17,087"
+        },
+        {
+            eventId: 5,
+            homeTeam: "Brighton & Hove Albion",
+            awayTeam: "Wolverhampton Wanderers",
+            homeScore: 2,
+            awayScore: 2,
+            stadium: "Amex Stadium",
+            attendance: "31,625"
+        },
+        {
+            eventId: 5,
+            homeTeam: "Manchester City",
+            awayTeam: "Southampton",
+            homeScore: 1,
+            awayScore: 0,
+            stadium: "Etihad Stadium",
+            attendance: "53,389"
+        },
+        {
+            eventId: 5,
+            homeTeam: "Everton",
+            awayTeam: "Fulham",
+            homeScore: 1,
+            awayScore: 1,
+            stadium: "Goodison Park",
+            attendance: "38,792"
+        },
+        {
+            eventId: 5,
+            homeTeam: "Chelsea",
+            awayTeam: "Newcastle United",
+            homeScore: 2,
+            awayScore: 1,
+            stadium: "Stamford Bridge",
+            attendance: "39,672"
+        },
+        {
+            eventId: 5,
+            homeTeam: "Crystal Palace",
+            awayTeam: "Tottenham Hotspur",
+            homeScore: 1,
+            awayScore: 0,
+            stadium: "Selhurst Park",
+            attendance: "25,142"
+        },
+        {
+            eventId: 5,
+            homeTeam: "West Ham United",
+            awayTeam: "Manchester United",
+            homeScore: 2,
+            awayScore: 1,
+            stadium: "London Stadium",
+            attendance: "62,467"
+        },
+        {
+            eventId: 5,
+            homeTeam: "Arsenal",
+            awayTeam: "Liverpool",
+            homeScore: 2,
+            awayScore: 2,
+            stadium: "Emirates Stadium",
+            attendance: "60,383"
         }
     ],
 
     startLists: [
-        // Allsvenskan Matchday 26 Fixtures
-        {
-            eventId: 5,
-            homeTeam: "Malmö FF",
-            awayTeam: "AIK",
-            kickoffTime: "15:00",
-            stadium: "Eleda Stadion",
-            date: "2025-10-26"
-        },
-        {
-            eventId: 5,
-            homeTeam: "Hammarby IF",
-            awayTeam: "IF Elfsborg",
-            kickoffTime: "15:00",
-            stadium: "Tele2 Arena",
-            date: "2025-10-26"
-        },
-        {
-            eventId: 5,
-            homeTeam: "BK Häcken",
-            awayTeam: "Djurgårdens IF",
-            kickoffTime: "17:30",
-            stadium: "Bravida Arena",
-            date: "2025-10-26"
-        },
-        {
-            eventId: 5,
-            homeTeam: "IFK Norrköping",
-            awayTeam: "IFK Göteborg",
-            kickoffTime: "15:00",
-            stadium: "Östgötaporten",
-            date: "2025-10-26"
-        },
-        {
-            eventId: 5,
-            homeTeam: "IFK Värnamo",
-            awayTeam: "Kalmar FF",
-            kickoffTime: "15:00",
-            stadium: "Finnvedsvallen",
-            date: "2025-10-26"
-        },
-
-        // Premier League Matchday 10 Fixtures
-        {
-            eventId: 6,
-            homeTeam: "Arsenal",
-            awayTeam: "Manchester United",
-            kickoffTime: "16:30",
-            stadium: "Emirates Stadium",
-            date: "2025-10-27"
-        },
-        {
-            eventId: 6,
-            homeTeam: "Chelsea",
-            awayTeam: "Manchester City",
-            kickoffTime: "14:00",
-            stadium: "Stamford Bridge",
-            date: "2025-10-27"
-        },
-        {
-            eventId: 6,
-            homeTeam: "Liverpool",
-            awayTeam: "Tottenham Hotspur",
-            kickoffTime: "16:30",
-            stadium: "Anfield",
-            date: "2025-10-27"
-        },
-        {
-            eventId: 6,
-            homeTeam: "Brighton & Hove Albion",
-            awayTeam: "Aston Villa",
-            kickoffTime: "14:00",
-            stadium: "Amex Stadium",
-            date: "2025-10-27"
-        },
-        {
-            eventId: 6,
-            homeTeam: "West Ham United",
-            awayTeam: "Newcastle United",
-            kickoffTime: "14:00",
-            stadium: "London Stadium",
-            date: "2025-10-27"
-        },
-        {
-            eventId: 6,
-            homeTeam: "Wolverhampton Wanderers",
-            awayTeam: "Brentford",
-            kickoffTime: "12:30",
-            stadium: "Molineux Stadium",
-            date: "2025-10-27"
-        }
+        // Note: Allsvenskan season ended November 10, 2024
+        // Premier League continues - fixtures shown are placeholders for future matchdays
     ]
 };

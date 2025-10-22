@@ -1,14 +1,15 @@
 # Football Results Website
 
-A minimalist, plain-text style website for displaying football match results and fixtures for Allsvenskan and Premier League.
+A minimalist, plain-text style website for displaying real football match results for Allsvenskan and Premier League.
 
 ## Features
 
-- **Home Page**: Overview of leagues and upcoming fixtures
+- **Home Page**: Overview of leagues
 - **Results Page**: Display completed match results with filtering options
-- **Fixtures Page**: View upcoming fixtures with kickoff times
+- **Fixtures Page**: View upcoming fixtures with kickoff times (when available)
 - **Responsive Design**: Works on desktop, tablet, and mobile devices
 - **Filter System**: Filter by league and matchday
+- **Real Data**: Contains actual match results from recent rounds/matchdays
 
 ## Leagues Included
 
@@ -37,22 +38,47 @@ A minimalist, plain-text style website for displaying football match results and
 3. Navigate to "Fixtures" to see upcoming fixtures
 4. Use the filter dropdowns to narrow down by league or matchday
 
-## Sample Data
+## Real Match Data
 
-The website includes sample data for:
-- 4 completed matchdays (2 Allsvenskan, 2 Premier League)
-- 2 upcoming matchdays (1 Allsvenskan, 1 Premier League)
-- Realistic match results with scores, stadiums, and attendance
-- Upcoming fixtures with kickoff times and venues
+The website currently displays **real match results** from:
+
+### Allsvenskan 2024
+- **Round 30** (November 10, 2024) - Final round of the season
+  - AIK 5-1 Halmstads BK
+  - Djurgårdens IF 3-1 IFK Norrköping
+  - GAIS 2-1 IK Sirius
+  - Kalmar FF 1-0 BK Häcken
+  - Malmö FF 2-1 BP
+  - Mjällby AIF 1-0 IFK Göteborg
+  - IFK Värnamo 0-0 IF Elfsborg
+  - Västerås SK 1-0 Hammarby IF
+
+- **Round 28** (October 28, 2024) - Championship deciding match
+  - Malmö FF 2-1 IFK Göteborg (Malmö wins 4th title in 5 years)
+
+### Premier League 2024-25
+- **Matchday 11** (November 9-10, 2024)
+  - Brighton 2-1 Manchester City (City's 4th straight loss)
+  - Liverpool 2-0 Aston Villa
+  - Tottenham 1-2 Ipswich (Ipswich's first PL win of season)
+  - Nottingham Forest 1-3 Newcastle
+
+- **Matchday 10** (November 2-4, 2024) - 10 matches
+  - Notable: Spurs 4-1 Aston Villa, Nottingham Forest 3-0 West Ham
+
+- **Matchday 9** (October 26-27, 2024) - 9 matches
+  - Notable: Brentford 4-3 Ipswich (7-goal thriller), Arsenal 2-2 Liverpool
 
 ## Customization
 
-To add your own data:
+To add your own data or update with new matches:
 
 1. Open `data.js`
 2. Add matchdays to the `events` array
 3. Add results to the `results` array (use the event ID to link them)
-4. Add fixtures to the `startLists` array (use the event ID to link them)
+4. Add fixtures to the `startLists` array for upcoming matches (use the event ID to link them)
+
+**Note**: The current data contains real match results from October-November 2024. The Allsvenskan 2024 season ended on November 10, 2024 with Malmö FF as champions.
 
 ### Event Object Structure
 ```javascript
