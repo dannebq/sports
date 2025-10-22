@@ -9,7 +9,7 @@ const apiConfig = {
     provider: 'football-data',
 
     // Your API key (get free key from https://www.football-data.org/)
-    apiKey: 'YOUR_API_KEY_HERE',
+    apiKey: 'ff9975a9aee649d1b668ea93721b6a59',
 
     // Auto-refresh interval in milliseconds (default: 5 minutes)
     refreshInterval: 300000, // 5 minutes
