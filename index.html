@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sport Results & Start Lists</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <h1>Sport Results</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="results.html">Results</a></li>
+                    <li><a href="startlists.html">Start Lists</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>Welcome to Sport Results</h2>
+                <p>Your source for the latest sport results and start lists</p>
+            </div>
+        </section>
+
+        <section class="sports-grid">
+            <div class="container">
+                <h3>Featured Sports</h3>
+                <div class="grid">
+                    <div class="sport-card">
+                        <div class="sport-icon">⛷️</div>
+                        <h4>Alpine Skiing</h4>
+                        <p>Downhill, Slalom, Giant Slalom, Super-G</p>
+                        <a href="results.html?sport=alpine" class="btn">View Results</a>
+                    </div>
+                    <div class="sport-card">
+                        <div class="sport-icon">🎿</div>
+                        <h4>Cross-Country Skiing</h4>
+                        <p>Sprint, Distance, Relay Events</p>
+                        <a href="results.html?sport=crosscountry" class="btn">View Results</a>
+                    </div>
+                    <div class="sport-card">
+                        <div class="sport-icon">🏂</div>
+                        <h4>Snowboarding</h4>
+                        <p>Halfpipe, Slopestyle, Cross</p>
+                        <a href="results.html?sport=snowboard" class="btn">View Results</a>
+                    </div>
+                    <div class="sport-card">
+                        <div class="sport-icon">🏃</div>
+                        <h4>Athletics</h4>
+                        <p>Track & Field Events</p>
+                        <a href="results.html?sport=athletics" class="btn">View Results</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="upcoming-events">
+            <div class="container">
+                <h3>Upcoming Events</h3>
+                <div class="event-list" id="upcoming-events">
+                    <!-- Events will be loaded by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Sport Results. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

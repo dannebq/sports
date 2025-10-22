@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sport Results - Start Lists</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <h1>Sport Results</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="results.html">Results</a></li>
+                    <li><a href="startlists.html" class="active">Start Lists</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <div class="container">
+                <h3>Start Lists</h3>
+
+                <div class="filter-section">
+                    <div class="filter-controls">
+                        <select id="sport-filter">
+                            <option value="">All Sports</option>
+                            <option value="alpine">Alpine Skiing</option>
+                            <option value="crosscountry">Cross-Country Skiing</option>
+                            <option value="snowboard">Snowboarding</option>
+                            <option value="athletics">Athletics</option>
+                        </select>
+
+                        <select id="event-filter">
+                            <option value="">All Events</option>
+                        </select>
+
+                        <select id="gender-filter">
+                            <option value="">All Genders</option>
+                            <option value="men">Men</option>
+                            <option value="women">Women</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="startlist-display">
+                    <!-- Start lists will be loaded here by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Sport Results. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="startlists.js"></script>
+</body>
+</html>
