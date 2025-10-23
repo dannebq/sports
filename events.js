@@ -85,6 +85,21 @@ const allEvents = [
     { date: '2025-12-11', sport: 'Malmö FF', event: 'Porto - Malmö FF (Europa)', link: 'schedule-malmo.html' },
     { date: '2026-01-22', sport: 'Malmö FF', event: 'Malmö FF - Crvena Zvezda (Europa)', link: 'schedule-malmo.html' },
     { date: '2026-01-29', sport: 'Malmö FF', event: 'Genk - Malmö FF (Europa)', link: 'schedule-malmo.html' },
+
+    // Ski Classics
+    { date: '2025-12-13', sport: 'Ski Classics', event: 'Bad Gastein Pro Team Tempo, Österrike', link: 'schedule-skiclassics.html' },
+    { date: '2025-12-14', sport: 'Ski Classics', event: 'Bad Gastein Criterium, Österrike', link: 'schedule-skiclassics.html' },
+    { date: '2026-01-17', sport: 'Ski Classics', event: 'Engadin La Diagonela, Schweiz', link: 'schedule-skiclassics.html' },
+    { date: '2026-01-25', sport: 'Ski Classics', event: 'Marcialonga, Italien', link: 'schedule-skiclassics.html' },
+    { date: '2026-01-30', sport: 'Ski Classics', event: 'Bedrichov Sprint, Tjeckien', link: 'schedule-skiclassics.html' },
+    { date: '2026-02-01', sport: 'Ski Classics', event: 'Jizerská50, Tjeckien', link: 'schedule-skiclassics.html' },
+    { date: '2026-03-01', sport: 'Ski Classics', event: 'Vasaloppet, Sverige', link: 'schedule-skiclassics.html' },
+    { date: '2026-03-07', sport: 'Ski Classics', event: 'Grönklitt 50k ITT Damer, Sverige', link: 'schedule-skiclassics.html' },
+    { date: '2026-03-08', sport: 'Ski Classics', event: 'Grönklitt 50k ITT Herrar, Sverige', link: 'schedule-skiclassics.html' },
+    { date: '2026-03-14', sport: 'Ski Classics', event: 'Birkebeinerrennet, Norge', link: 'schedule-skiclassics.html' },
+    { date: '2026-03-21', sport: 'Ski Classics', event: 'Marcialonga Bodø, Norge', link: 'schedule-skiclassics.html' },
+    { date: '2026-03-28', sport: 'Ski Classics', event: 'Reistadløpet, Norge', link: 'schedule-skiclassics.html' },
+    { date: '2026-03-29', sport: 'Ski Classics', event: 'Grand Finale Summit 2 Senja, Norge', link: 'schedule-skiclassics.html' },
 ];
 
 // Function to get today's events
