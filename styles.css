@@ -43,9 +43,10 @@ header {
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 15px;
+    gap: 8px;
     border-top: 1px solid #000;
     padding-top: 10px;
+    flex-wrap: wrap;
 }
 
 .nav-menu a {
@@ -53,6 +54,7 @@ header {
     text-decoration: none;
     font-weight: normal;
     padding: 0;
+    font-size: 0.9rem;
 }
 
 .nav-menu a:hover,
