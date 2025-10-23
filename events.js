@@ -74,6 +74,17 @@ const allEvents = [
     { date: '2025-12-06', sport: 'Skidskytte', event: 'Östersund, Sverige - Världscup', link: 'schedule-biathlon.html' },
     { date: '2025-12-07', sport: 'Skidskytte', event: 'Östersund, Sverige - Världscup', link: 'schedule-biathlon.html' },
     { date: '2025-12-08', sport: 'Skidskytte', event: 'Hochfilzen, Österrike - Världscup', link: 'schedule-biathlon.html' },
+
+    // Malmö FF
+    { date: '2025-10-23', sport: 'Malmö FF', event: 'Malmö FF - Dinamo Zagreb (Europa)', link: 'schedule-malmo.html' },
+    { date: '2025-10-27', sport: 'Malmö FF', event: 'Malmö FF - Hammarby IF', link: 'schedule-malmo.html' },
+    { date: '2025-11-01', sport: 'Malmö FF', event: 'BK Häcken - Malmö FF', link: 'schedule-malmo.html' },
+    { date: '2025-11-06', sport: 'Malmö FF', event: 'Malmö FF - Panathinaikos (Europa)', link: 'schedule-malmo.html' },
+    { date: '2025-11-09', sport: 'Malmö FF', event: 'Malmö FF - GAIS', link: 'schedule-malmo.html' },
+    { date: '2025-11-27', sport: 'Malmö FF', event: 'Nottingham Forest - Malmö FF (Europa)', link: 'schedule-malmo.html' },
+    { date: '2025-12-11', sport: 'Malmö FF', event: 'Porto - Malmö FF (Europa)', link: 'schedule-malmo.html' },
+    { date: '2026-01-22', sport: 'Malmö FF', event: 'Malmö FF - Crvena Zvezda (Europa)', link: 'schedule-malmo.html' },
+    { date: '2026-01-29', sport: 'Malmö FF', event: 'Genk - Malmö FF (Europa)', link: 'schedule-malmo.html' },
 ];
 
 // Function to get today's events
