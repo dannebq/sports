@@ -56,8 +56,10 @@ function hidePastEvents() {
                     let year = today.getFullYear();
                     eventDate = new Date(year, month, day);
 
-                    // If date is in the past, assume it's next year
-                    if (eventDate < today) {
+                    // If the month is before current month, it might be next year
+                    // But only if it's significantly before (to handle events spanning year boundary)
+                    if (month < today.getMonth() - 2) {
+                        // More than 2 months ago, likely next year
                         year = today.getFullYear() + 1;
                         eventDate = new Date(year, month, day);
                     }
@@ -76,8 +78,10 @@ function hidePastEvents() {
                     let year = today.getFullYear();
                     eventDate = new Date(year, month, day);
 
-                    // If date is in the past, assume it's next year
-                    if (eventDate < today) {
+                    // If the month is before current month, it might be next year
+                    // But only if it's significantly before (to handle events spanning year boundary)
+                    if (month < today.getMonth() - 2) {
+                        // More than 2 months ago, likely next year
                         year = today.getFullYear() + 1;
                         eventDate = new Date(year, month, day);
                     }
@@ -96,8 +100,10 @@ function hidePastEvents() {
                     let year = today.getFullYear();
                     eventDate = new Date(year, month, day);
 
-                    // If date is in the past, assume it's next year
-                    if (eventDate < today) {
+                    // If the month is before current month, it might be next year
+                    // But only if it's significantly before (to handle events spanning year boundary)
+                    if (month < today.getMonth() - 2) {
+                        // More than 2 months ago, likely next year
                         year = today.getFullYear() + 1;
                         eventDate = new Date(year, month, day);
                     }
