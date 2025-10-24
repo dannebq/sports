@@ -76,7 +76,7 @@ const allEvents = [
     { date: '2025-12-08', sport: 'Skidskytte', event: 'Hochfilzen, Österrike - Världscup', link: 'schedule-biathlon.html' },
 
     // Malmö FF
-    { date: '2025-10-23', sport: 'Malmö FF', event: 'Malmö FF - Dinamo Zagreb (Europa)', link: 'schedule-malmo.html' },
+    { date: '2025-10-23', time: '21:00', sport: 'Malmö FF', event: 'Malmö FF - Dinamo Zagreb (Europa)', link: 'schedule-malmo.html' },
     { date: '2025-10-27', sport: 'Malmö FF', event: 'Malmö FF - Hammarby IF', link: 'schedule-malmo.html' },
     { date: '2025-11-01', sport: 'Malmö FF', event: 'BK Häcken - Malmö FF', link: 'schedule-malmo.html' },
     { date: '2025-11-06', sport: 'Malmö FF', event: 'Malmö FF - Panathinaikos (Europa)', link: 'schedule-malmo.html' },
@@ -124,12 +124,12 @@ function displayTodaysEvents() {
 
     let html = '<div class="event-list">';
     todaysEvents.forEach(event => {
+        const timeDisplay = event.time ? ` - ${event.time}` : '';
         html += `
             <div class="event-item">
                 <div class="event-info">
-                    <h4>${event.sport}</h4>
+                    <h4>${event.sport}${timeDisplay}</h4>
                     <p>${event.event}</p>
-                    <a href="${event.link}" class="btn">Se mer</a>
                 </div>
             </div>
         `;
