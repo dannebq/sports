@@ -11,15 +11,6 @@ const allEvents = [
     { date: '2025-12-13', sport: 'Längdskidor', event: 'Davos, Schweiz - Världscup', link: 'schedule-worldcup.html' },
     { date: '2025-12-14', sport: 'Längdskidor', event: 'Davos, Schweiz - Världscup', link: 'schedule-worldcup.html' },
 
-    // Handbollsligan (subset of upcoming matches)
-    { date: '2025-10-25', sport: 'Handbollsligan', event: 'Djurgården - IFK Värnamo', link: 'schedule-handbollsligan.html' },
-    { date: '2025-10-25', sport: 'Handbollsligan', event: 'Östers IF - Degerfors IF', link: 'schedule-handbollsligan.html' },
-    { date: '2025-10-26', sport: 'Handbollsligan', event: 'Flera matcher', link: 'schedule-handbollsligan.html' },
-    { date: '2025-10-27', sport: 'Handbollsligan', event: 'Malmö FF - Hammarby', link: 'schedule-handbollsligan.html' },
-    { date: '2025-11-01', sport: 'Handbollsligan', event: 'Flera matcher', link: 'schedule-handbollsligan.html' },
-    { date: '2025-11-02', sport: 'Handbollsligan', event: 'Flera matcher', link: 'schedule-handbollsligan.html' },
-    { date: '2025-11-09', sport: 'Handbollsligan', event: 'Flera matcher', link: 'schedule-handbollsligan.html' },
-
     // Green Bay Packers
     { date: '2025-09-07', sport: 'NFL', event: 'Green Bay Packers - Detroit Lions', link: 'schedule-packers.html' },
     { date: '2025-09-11', sport: 'NFL', event: 'Green Bay Packers - Washington Commanders', link: 'schedule-packers.html' },
@@ -121,22 +112,12 @@ function getUpcomingEvents() {
     const tomorrow = new Date(today);
     tomorrow.setDate(today.getDate() + 1);
 
-    console.log('Today:', today);
-    console.log('Tomorrow:', tomorrow);
-    console.log('Next week:', nextWeek);
-
-    const filtered = allEvents.filter(event => {
+    return allEvents.filter(event => {
         const eventDate = new Date(event.date + 'T00:00:00');
-        const isInRange = eventDate >= tomorrow && eventDate <= nextWeek;
-        if (isInRange) {
-            console.log('Event in range:', event.date, event.sport);
-        }
-        return isInRange;
+        return eventDate >= tomorrow && eventDate <= nextWeek;
     }).sort((a, b) => {
         return new Date(a.date) - new Date(b.date);
     });
-
-    return filtered;
 }
 
 // Function to display today's events on the page
@@ -171,13 +152,9 @@ function displayTodaysEvents() {
 // Function to display upcoming events on the page
 function displayUpcomingEvents() {
     const eventsContainer = document.getElementById('upcoming-events');
-    if (!eventsContainer) {
-        console.log('upcoming-events container not found');
-        return;
-    }
+    if (!eventsContainer) return;
 
     const upcomingEvents = getUpcomingEvents();
-    console.log('Upcoming events count:', upcomingEvents.length);
 
     if (upcomingEvents.length === 0) {
         eventsContainer.innerHTML = '<p style="font-style: italic;">Inga kommande händelser inom 7 dagar</p>';
