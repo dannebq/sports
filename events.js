@@ -110,6 +110,25 @@ function getTodaysEvents() {
     return allEvents.filter(event => event.date === todayString);
 }
 
+// Function to get upcoming events (within 7 days, excluding today)
+function getUpcomingEvents() {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const nextWeek = new Date(today);
+    nextWeek.setDate(today.getDate() + 7);
+
+    const tomorrow = new Date(today);
+    tomorrow.setDate(today.getDate() + 1);
+
+    return allEvents.filter(event => {
+        const eventDate = new Date(event.date + 'T00:00:00');
+        return eventDate >= tomorrow && eventDate <= nextWeek;
+    }).sort((a, b) => {
+        return new Date(a.date) - new Date(b.date);
+    });
+}
+
 // Function to display today's events on the page
 function displayTodaysEvents() {
     const eventsContainer = document.getElementById('todays-events');
@@ -139,7 +158,45 @@ function displayTodaysEvents() {
     eventsContainer.innerHTML = html;
 }
 
+// Function to display upcoming events on the page
+function displayUpcomingEvents() {
+    const eventsContainer = document.getElementById('upcoming-events');
+    if (!eventsContainer) return;
+
+    const upcomingEvents = getUpcomingEvents();
+
+    if (upcomingEvents.length === 0) {
+        eventsContainer.innerHTML = '<p style="font-style: italic;">Inga kommande händelser inom 7 dagar</p>';
+        return;
+    }
+
+    let html = '<div class="event-list">';
+    upcomingEvents.forEach(event => {
+        const timeDisplay = event.time ? ` - ${event.time}` : '';
+        const eventDate = new Date(event.date + 'T00:00:00');
+        const dateString = eventDate.toLocaleDateString('sv-SE', {
+            weekday: 'short',
+            day: 'numeric',
+            month: 'short'
+        });
+        html += `
+            <div class="event-item">
+                <div class="event-info">
+                    <h4>${event.sport}${timeDisplay}</h4>
+                    <p>${dateString} - ${event.event}</p>
+                </div>
+            </div>
+        `;
+    });
+    html += '</div>';
+
+    eventsContainer.innerHTML = html;
+}
+
 // Run when page loads
 if (typeof document !== 'undefined') {
-    document.addEventListener('DOMContentLoaded', displayTodaysEvents);
+    document.addEventListener('DOMContentLoaded', function() {
+        displayTodaysEvents();
+        displayUpcomingEvents();
+    });
 }
