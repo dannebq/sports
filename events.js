@@ -161,25 +161,42 @@ function displayUpcomingEvents() {
         return;
     }
 
-    let html = '<div class="event-list">';
+    // Group events by date
+    const eventsByDate = {};
     upcomingEvents.forEach(event => {
-        const timeDisplay = event.time ? ` - ${event.time}` : '';
-        const eventDate = new Date(event.date + 'T00:00:00');
+        if (!eventsByDate[event.date]) {
+            eventsByDate[event.date] = [];
+        }
+        eventsByDate[event.date].push(event);
+    });
 
-        // Format date manually to avoid locale issues
-        const days = ['sön', 'mån', 'tis', 'ons', 'tor', 'fre', 'lör'];
-        const months = ['jan', 'feb', 'mar', 'apr', 'maj', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'];
+    // Format date manually to avoid locale issues
+    const days = ['sön', 'mån', 'tis', 'ons', 'tor', 'fre', 'lör'];
+    const months = ['jan', 'feb', 'mar', 'apr', 'maj', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'];
+
+    let html = '<div class="event-list">';
+
+    // Iterate through dates in order
+    Object.keys(eventsByDate).sort().forEach(dateKey => {
+        const eventDate = new Date(dateKey + 'T00:00:00');
         const dateString = `${days[eventDate.getDay()]} ${eventDate.getDate()} ${months[eventDate.getMonth()]}`;
 
-        html += `
-            <div class="event-item">
-                <div class="event-info">
-                    <h4>${event.sport}${timeDisplay}</h4>
-                    <p>${dateString} - ${event.event}</p>
+        html += `<div class="date-group">`;
+        html += `<h4 class="date-header">${dateString}</h4>`;
+
+        eventsByDate[dateKey].forEach(event => {
+            const timeDisplay = event.time ? ` ${event.time}` : '';
+            html += `
+                <div class="event-item-grouped">
+                    <span class="event-sport">${event.sport}${timeDisplay}:</span>
+                    <span class="event-desc">${event.event}</span>
                 </div>
-            </div>
-        `;
+            `;
+        });
+
+        html += `</div>`;
     });
+
     html += '</div>';
 
     eventsContainer.innerHTML = html;
