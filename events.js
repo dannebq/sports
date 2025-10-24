@@ -121,12 +121,22 @@ function getUpcomingEvents() {
     const tomorrow = new Date(today);
     tomorrow.setDate(today.getDate() + 1);
 
-    return allEvents.filter(event => {
+    console.log('Today:', today);
+    console.log('Tomorrow:', tomorrow);
+    console.log('Next week:', nextWeek);
+
+    const filtered = allEvents.filter(event => {
         const eventDate = new Date(event.date + 'T00:00:00');
-        return eventDate >= tomorrow && eventDate <= nextWeek;
+        const isInRange = eventDate >= tomorrow && eventDate <= nextWeek;
+        if (isInRange) {
+            console.log('Event in range:', event.date, event.sport);
+        }
+        return isInRange;
     }).sort((a, b) => {
         return new Date(a.date) - new Date(b.date);
     });
+
+    return filtered;
 }
 
 // Function to display today's events on the page
@@ -161,9 +171,13 @@ function displayTodaysEvents() {
 // Function to display upcoming events on the page
 function displayUpcomingEvents() {
     const eventsContainer = document.getElementById('upcoming-events');
-    if (!eventsContainer) return;
+    if (!eventsContainer) {
+        console.log('upcoming-events container not found');
+        return;
+    }
 
     const upcomingEvents = getUpcomingEvents();
+    console.log('Upcoming events count:', upcomingEvents.length);
 
     if (upcomingEvents.length === 0) {
         eventsContainer.innerHTML = '<p style="font-style: italic;">Inga kommande händelser inom 7 dagar</p>';
@@ -174,11 +188,12 @@ function displayUpcomingEvents() {
     upcomingEvents.forEach(event => {
         const timeDisplay = event.time ? ` - ${event.time}` : '';
         const eventDate = new Date(event.date + 'T00:00:00');
-        const dateString = eventDate.toLocaleDateString('sv-SE', {
-            weekday: 'short',
-            day: 'numeric',
-            month: 'short'
-        });
+
+        // Format date manually to avoid locale issues
+        const days = ['sön', 'mån', 'tis', 'ons', 'tor', 'fre', 'lör'];
+        const months = ['jan', 'feb', 'mar', 'apr', 'maj', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'];
+        const dateString = `${days[eventDate.getDay()]} ${eventDate.getDate()} ${months[eventDate.getMonth()]}`;
+
         html += `
             <div class="event-item">
                 <div class="event-info">
