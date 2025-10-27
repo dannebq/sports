@@ -254,18 +254,34 @@ function displayTodaysEvents() {
         return;
     }
 
-    let html = '<div class="event-list">';
+    // Group events by sport
+    const eventsBySport = {};
     todaysEvents.forEach(event => {
-        const timeDisplay = event.time ? ` - ${event.time}` : '';
-        html += `
-            <div class="event-item">
-                <div class="event-info">
-                    <h4>${event.sport}${timeDisplay}</h4>
-                    <p>${event.event}</p>
-                </div>
-            </div>
-        `;
+        if (!eventsBySport[event.sport]) {
+            eventsBySport[event.sport] = [];
+        }
+        eventsBySport[event.sport].push(event);
     });
+
+    let html = '<div class="event-list">';
+
+    // Iterate through sports
+    Object.keys(eventsBySport).forEach(sport => {
+        html += `<div class="sport-group">`;
+        html += `<h4 class="sport-header">${sport}</h4>`;
+
+        eventsBySport[sport].forEach(event => {
+            const timeDisplay = event.time ? `${event.time} ` : '';
+            html += `
+                <div class="event-item-grouped">
+                    <span class="event-desc">${timeDisplay}${event.event}</span>
+                </div>
+            `;
+        });
+
+        html += `</div>`;
+    });
+
     html += '</div>';
 
     eventsContainer.innerHTML = html;
@@ -306,14 +322,30 @@ function displayUpcomingEvents() {
         html += `<div class="date-group">`;
         html += `<h4 class="date-header">${dateString}</h4>`;
 
+        // Group events by sport within this date
+        const eventsBySport = {};
         eventsByDate[dateKey].forEach(event => {
-            const timeDisplay = event.time ? ` ${event.time}` : '';
-            html += `
-                <div class="event-item-grouped">
-                    <span class="event-sport">${event.sport}${timeDisplay}:</span>
-                    <span class="event-desc">${event.event}</span>
-                </div>
-            `;
+            if (!eventsBySport[event.sport]) {
+                eventsBySport[event.sport] = [];
+            }
+            eventsBySport[event.sport].push(event);
+        });
+
+        // Iterate through sports
+        Object.keys(eventsBySport).forEach(sport => {
+            html += `<div class="sport-group">`;
+            html += `<h5 class="sport-header">${sport}</h5>`;
+
+            eventsBySport[sport].forEach(event => {
+                const timeDisplay = event.time ? `${event.time} ` : '';
+                html += `
+                    <div class="event-item-grouped">
+                        <span class="event-desc">${timeDisplay}${event.event}</span>
+                    </div>
+                `;
+            });
+
+            html += `</div>`;
         });
 
         html += `</div>`;

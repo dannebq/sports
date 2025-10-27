@@ -419,6 +419,21 @@ footer {
     margin-bottom: 5px;
 }
 
+.todays-events .sport-group {
+    margin-bottom: 12px;
+}
+
+.todays-events .sport-header {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.todays-events .event-item-grouped {
+    padding: 3px 0 3px 10px;
+    margin-bottom: 2px;
+}
+
 /* Upcoming Events */
 .upcoming-events {
     border-bottom: 1px solid #000;
@@ -445,9 +460,20 @@ footer {
     border-bottom: 1px dotted #000;
 }
 
+.upcoming-events .sport-group {
+    margin-bottom: 10px;
+    padding-left: 10px;
+}
+
+.upcoming-events .sport-header {
+    font-size: 0.95rem;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
 .upcoming-events .event-item-grouped {
-    padding: 5px 0 5px 10px;
-    margin-bottom: 3px;
+    padding: 3px 0 3px 10px;
+    margin-bottom: 2px;
 }
 
 .upcoming-events .event-sport {
