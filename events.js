@@ -61,6 +61,15 @@ const allEvents = [
     { date: '2025-11-30', time: '16:00', sport: 'Handbollsligan', event: 'HK Malmö - VästeråsIrsta HF', link: 'schedule-handbollsligan.html' },
     { date: '2025-12-01', time: '19:00', sport: 'Handbollsligan', event: 'Alingsås HK - Eskilstuna Guif IF', link: 'schedule-handbollsligan.html' },
 
+    // Vinterstudion November 2025
+    { date: '2025-11-15', time: '09:30', sport: 'Vinterstudion', event: 'Skidskytte Idre - Sprint h/d (SVT1 09:30-13:45)', link: 'schedule-vinterstudion.html' },
+    { date: '2025-11-16', time: '09:45', sport: 'Vinterstudion', event: 'Skidskytte Idre - Kortdistans h/d (SVT1 09:45-13:45)', link: 'schedule-vinterstudion.html' },
+    { date: '2025-11-21', time: '08:40', sport: 'Vinterstudion', event: 'Längdskidor Gällivare - Sprint (SVT Play 08:40, SVT1 11:00)', link: 'schedule-vinterstudion.html' },
+    { date: '2025-11-22', time: '09:30', sport: 'Vinterstudion', event: 'Längdskidor Gällivare - 10 km klassiskt h/d (SVT1 09:30-13:00)', link: 'schedule-vinterstudion.html' },
+    { date: '2025-11-23', time: '09:45', sport: 'Vinterstudion', event: 'Längdskidor Gällivare - 10 km fristil h/d (SVT1 09:45-13:00)', link: 'schedule-vinterstudion.html' },
+    { date: '2025-11-29', time: '12:45', sport: 'Vinterstudion', event: 'Skidskytte Östersund VC - Stafett d/h (SVT1 12:45-18:30)', link: 'schedule-vinterstudion.html' },
+    { date: '2025-11-30', time: '13:45', sport: 'Vinterstudion', event: 'Skidskytte Östersund VC - Mixed stafett (SVT1 13:45-18:00)', link: 'schedule-vinterstudion.html' },
+
     // Green Bay Packers
     { date: '2025-09-07', sport: 'NFL', event: 'Green Bay Packers - Detroit Lions', link: 'schedule-packers.html' },
     { date: '2025-09-11', sport: 'NFL', event: 'Green Bay Packers - Washington Commanders', link: 'schedule-packers.html' },
