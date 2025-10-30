@@ -121,6 +121,44 @@ function hidePastEvents() {
             }
         });
     });
+
+    // After hiding individual rows, hide entire table sections if all events have passed
+    hideEmptyTables();
+}
+
+// Hide entire table sections (table + header + description) if all rows are hidden
+function hideEmptyTables() {
+    const tables = document.querySelectorAll('.schedule-table');
+
+    tables.forEach(table => {
+        const tbody = table.querySelector('tbody');
+        if (!tbody) return;
+
+        const allRows = tbody.querySelectorAll('tr');
+        const visibleRows = Array.from(allRows).filter(row => {
+            return row.style.display !== 'none';
+        });
+
+        // If all rows are hidden, hide the entire table section
+        if (allRows.length > 0 && visibleRows.length === 0) {
+            // Hide the table itself
+            table.style.display = 'none';
+
+            // Find and hide the preceding <h3> header
+            let element = table.previousElementSibling;
+
+            // Skip over <p> tags if present (descriptions)
+            while (element && element.tagName === 'P') {
+                element.style.display = 'none';
+                element = element.previousElementSibling;
+            }
+
+            // Hide the <h3> header
+            if (element && element.tagName === 'H3') {
+                element.style.display = 'none';
+            }
+        }
+    });
 }
 
 // Run when page loads
