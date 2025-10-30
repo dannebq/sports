@@ -65,9 +65,15 @@ header {
 /* Navigation Buttons */
 .nav-buttons {
     display: flex;
+    flex-direction: column;
     gap: 10px;
     border-top: 1px solid #000;
     padding-top: 10px;
+}
+
+.button-row {
+    display: flex;
+    gap: 10px;
     flex-wrap: wrap;
 }
 
