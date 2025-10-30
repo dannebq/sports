@@ -61,7 +61,7 @@ const allEvents = [
     { date: '2025-11-30', time: '16:00', sport: 'Handbollsligan', event: 'HK Malmö - VästeråsIrsta HF', link: 'schedule-handbollsligan.html' },
     { date: '2025-12-01', time: '19:00', sport: 'Handbollsligan', event: 'Alingsås HK - Eskilstuna Guif IF', link: 'schedule-handbollsligan.html' },
 
-    // Vinterstudion November 2025
+    // Vinterstudion November & December 2025
     { date: '2025-11-15', time: '09:30', sport: 'Vinterstudion', event: 'Skidskytte Idre - Sprint h/d (SVT1 09:30-13:45)', link: 'schedule-vinterstudion.html' },
     { date: '2025-11-16', time: '09:45', sport: 'Vinterstudion', event: 'Skidskytte Idre - Kortdistans h/d (SVT1 09:45-13:45)', link: 'schedule-vinterstudion.html' },
     { date: '2025-11-21', time: '08:40', sport: 'Vinterstudion', event: 'Längdskidor Gällivare - Sprint (SVT Play 08:40, SVT1 11:00)', link: 'schedule-vinterstudion.html' },
@@ -69,6 +69,18 @@ const allEvents = [
     { date: '2025-11-23', time: '09:45', sport: 'Vinterstudion', event: 'Längdskidor Gällivare - 10 km fristil h/d (SVT1 09:45-13:00)', link: 'schedule-vinterstudion.html' },
     { date: '2025-11-29', time: '12:45', sport: 'Vinterstudion', event: 'Skidskytte Östersund VC - Stafett d/h (SVT1 12:45-18:30)', link: 'schedule-vinterstudion.html' },
     { date: '2025-11-30', time: '13:45', sport: 'Vinterstudion', event: 'Skidskytte Östersund VC - Mixed stafett (SVT1 13:45-18:00)', link: 'schedule-vinterstudion.html' },
+    { date: '2025-12-02', time: '15:20', sport: 'Vinterstudion', event: 'Skidskytte Östersund VC - Individuell 15 km (d)', link: 'schedule-vinterstudion.html' },
+    { date: '2025-12-03', time: '15:20', sport: 'Vinterstudion', event: 'Skidskytte Östersund VC - Individuell 20 km (h)', link: 'schedule-vinterstudion.html' },
+    { date: '2025-12-05', time: '15:50', sport: 'Vinterstudion', event: 'Skidskytte Östersund VC - Sprint (d)', link: 'schedule-vinterstudion.html' },
+    { date: '2025-12-06', time: '16:00', sport: 'Vinterstudion', event: 'Skidskytte Östersund VC - Sprint (h)', link: 'schedule-vinterstudion.html' },
+    { date: '2025-12-07', time: '13:00', sport: 'Vinterstudion', event: 'Skidskytte Östersund VC - Jaktstart d/h (SVT1 13:00-16:30)', link: 'schedule-vinterstudion.html' },
+    { date: '2025-12-12', time: '11:15', sport: 'Vinterstudion', event: 'Skidskytte Hochfilzen VC - Sprint h/d', link: 'schedule-vinterstudion.html' },
+    { date: '2025-12-13', time: '11:30', sport: 'Vinterstudion', event: 'Ski Classics Bad Gastein / Skidskytte Hochfilzen - Individuell 7 km / Jaktstart (h) / Stafett (d)', link: 'schedule-vinterstudion.html' },
+    { date: '2025-12-14', time: '11:30', sport: 'Vinterstudion', event: 'Ski Classics Bad Gastein / Skidskytte Hochfilzen - Criterium 36 km / Stafett (h) / Jaktstart (d)', link: 'schedule-vinterstudion.html' },
+    { date: '2025-12-18', time: '14:05', sport: 'Vinterstudion', event: 'Skidskytte Annecy VC - Sprint (d)', link: 'schedule-vinterstudion.html' },
+    { date: '2025-12-19', time: '14:05', sport: 'Vinterstudion', event: 'Skidskytte Annecy VC - Sprint (h)', link: 'schedule-vinterstudion.html' },
+    { date: '2025-12-20', time: '12:00', sport: 'Vinterstudion', event: 'Skidskytte Annecy VC - Jaktstart d/h (SVT1 12:00-16:00)', link: 'schedule-vinterstudion.html' },
+    { date: '2025-12-21', time: '12:00', sport: 'Vinterstudion', event: 'Skidskytte Annecy VC - Masstart d/h (SVT1 12:00-16:00)', link: 'schedule-vinterstudion.html' },
 
     // Green Bay Packers
     { date: '2025-09-07', sport: 'NFL', event: 'Green Bay Packers - Detroit Lions', link: 'schedule-packers.html' },
